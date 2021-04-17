@@ -5,12 +5,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/guerreiros.css" />
     <title>Guerreiros-Multi</title>
   </head>
-  <body>
+  <body class="bg-light grade">
+    <div class="container-fluid">
+      <div class="text-center m-3">
+        <img
+          src="images/vetor_pequeno.png"
+          alt="Guerreiros-Multi Logo"
+          width="45%"
+          height="45%"
+        />
+      </div>
+
+      <div class="m-3">
+        <form action="#" method="post" class="form">
+          <div class="mb-3">
+            <label for="email" class="form-label">Endereço de email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              aria-describedby="emailHelp"
+            />
+            <div id="emailHelp" class="form-text">
+              Nós nunca compartilharemos o seu email com ninguém.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Senha</label>
+            <input type="password" class="form-control" id="password" />
+          </div>
+          <button id="btn-entrar" class="btn btn-danger m-1">Entrar</button>
+          <button
+            id="btn-entrar-load"
+            class="btn btn-danger"
+            type="button"
+            disabled
+          >
+            <span
+              class="spinner-border spinner-border-sm m-1"
+              role="status"
+              aria-hidden="true"
+            ></span>
+            Carregando...
+          </button>
+          <button type="button" class="btn btn-outline-danger m-1 float-end">
+            Cadastrar-se
+          </button>
+        </form>
+      </div>
+    </div>
+
     <footer>
       <script src="js/jquery-3.6.0.min.js"></script>
       <script src="js/bootstrap.js"></script>
+
+      <script>
+        $(document).ready(function () {
+          $("#btn-entrar-load").hide(0);
+          //--------------------------------
+          $("#btn-entrar").click(function () {
+            $("#btn-entrar").hide(270);
+            $("#btn-entrar-load").show(270);
+          });
+        });
+      </script>
     </footer>
   </body>
 </html>
