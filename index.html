@@ -1,43 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/guerreiros.css" />
+    <!-- Importação do estilo Bootstrap 5 e código customizado Guerreiros -->
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/guerreiros.css" />
     <title>Guerreiros-Multi</title>
   </head>
   <body class="bg-light grade">
+    <!-- Container de fundo -->
     <div class="container-fluid">
+      <!-- Imagem do logo -->
       <div class="text-center m-3">
         <img
-          src="images/vetor_pequeno.png"
+          src="/images/vetor_pequeno.png"
           alt="Guerreiros-Multi Logo"
-          width="45%"
-          height="45%"
+          width="55%"
+          height="55%"
         />
       </div>
-
-      <div class="m-3">
-        <form action="#" method="post" class="form">
+      <!-- Container que faz o fundo do FORM -->
+      <div
+        class="container mc-3 rounded border border-1 shadow shadow-lg bg-transparence"
+      >
+        <br />
+        <!-- Início do FORM de login -->
+        <form action="php/login.php" method="post" class="form text-light">
+          <!-- FORM email -->
           <div class="mb-3">
             <label for="email" class="form-label">Endereço de email</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              aria-describedby="emailHelp"
-            />
+            <div class="input-group">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                aria-describedby="emailHelp"
+                required
+              />
+              <img
+                src="/images/bootstrap-icons/mailbox2.svg"
+                class="input-group-text"
+              />
+            </div>
             <div id="emailHelp" class="form-text">
               Nós nunca compartilharemos o seu email com ninguém.
             </div>
           </div>
+          <!-- FORM senha -->
           <div class="mb-3">
             <label for="password" class="form-label">Senha</label>
-            <input type="password" class="form-control" id="password" />
+            <div class="input-group">
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                required
+              />
+              <img
+                src="/images/bootstrap-icons/key-fill.svg"
+                class="input-group-text"
+              />
+            </div>
           </div>
+          <!-- FORM botão de entrar -->
           <button id="btn-entrar" class="btn btn-danger m-1">Entrar</button>
+          <!-- FORM botão de carregar -->
           <button
             id="btn-entrar-load"
             class="btn btn-danger"
@@ -51,21 +80,27 @@
             ></span>
             Carregando...
           </button>
-          <button type="button" class="btn btn-outline-danger m-1 float-end">
-            Cadastrar-se
+          <!-- FORM botão de cadastro -->
+          <button class="float-end m-2 btn btn-outline-danger">
+            <a class="text-white text-decoration-none" href="cadastro.html"
+              >Cadastrar-se</a
+            >
           </button>
         </form>
+        <!-- Fim do FORM de login -->
+        <br />
       </div>
     </div>
 
     <footer>
-      <script src="js/jquery-3.6.0.min.js"></script>
-      <script src="js/bootstrap.js"></script>
+      <!-- Importação dos script do jQuery e Bootstrap 5 -->
+      <script src="/js/jquery-3.6.0.min.js"></script>
+      <script src="/js/bootstrap.js"></script>
 
       <script>
         $(document).ready(function () {
           $("#btn-entrar-load").hide(0);
-          //--------------------------------
+          // Função serve para poder alterar o botão de "entrar" para o botão de "carregando".
           $("#btn-entrar").click(function () {
             $("#btn-entrar").hide(270);
             $("#btn-entrar-load").show(270);
