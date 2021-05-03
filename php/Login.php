@@ -4,8 +4,8 @@
 if (isset($_POST["email"]) && !empty($_POST["email"]) && isset($_POST["password"]) && !empty($_POST["password"])) {
 
     // Importa o "Conexao.php" e também o "Usuario.php" para o arquivo.
-    require "Conexao.php";
-    require "Usuario.php";
+    include "Conexao.php";
+    include "Usuario.php";
 
     // Instancia a classe Usuario.
     $u = new Usuario();

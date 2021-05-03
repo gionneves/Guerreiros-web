@@ -1,9 +1,6 @@
 <?php
 // Criação da classe usuário
 class Usuario {
-
-    // Chamando a váriavel global $pdo (do arquivo de "conexao.php").
-    global $pdo;
   
     /**
      * Função pública para verificar se o login é existente ou não.
@@ -13,8 +10,12 @@ class Usuario {
      * o "$pass" onde entra a senha do usuário.
      */
     public function verificaLogin($user, $pass){
-        $sql = "SELECT * FROM ususarios WHERE email = :user and senha = :pass";
-        $sql = $stmt->prepare($sql);
+
+        // Chamando a váriavel global $pdo (do arquivo de "conexao.php").
+        global $pdo;
+
+        $sql = "SELECT * FROM usuarios WHERE email = :user and senha = :pass";
+        $sql = $pdo->prepare($sql);
         $sql->bindParam(":user", $user);
         $sql->bindParam(":pass", $pass);
         $sql->execute();

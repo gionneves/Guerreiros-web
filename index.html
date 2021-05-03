@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Importação do estilo Bootstrap 5 e código customizado Guerreiros -->
-    <link rel="stylesheet" href="/css/bootstrap.css" />
-    <link rel="stylesheet" href="/css/guerreiros.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/guerreiros.css" />
     <title>Guerreiros-Multi</title>
   </head>
   <body class="bg-light grade">
@@ -15,7 +15,7 @@
       <!-- Imagem do logo -->
       <div class="text-center m-3">
         <img
-          src="/images/vetor_pequeno.png"
+          src="images/vetor_pequeno.png"
           alt="Guerreiros-Multi Logo"
           width="55%"
           height="55%"
@@ -27,7 +27,7 @@
       >
         <br />
         <!-- Início do FORM de login -->
-        <form action="php/login.php" method="post" class="form text-light">
+        <form action="php/Login.php" method="post" class="form text-light">
           <!-- FORM email -->
           <div class="mb-3">
             <label for="email" class="form-label">Endereço de email</label>
@@ -35,12 +35,13 @@
               <input
                 type="email"
                 class="form-control"
+                name="email"
                 id="email"
                 aria-describedby="emailHelp"
                 required
               />
               <img
-                src="/images/bootstrap-icons/mailbox2.svg"
+                src="images/bootstrap-icons/mailbox2.svg"
                 class="input-group-text"
               />
             </div>
@@ -56,30 +57,18 @@
                 type="password"
                 class="form-control"
                 id="password"
+                name="password"
                 required
               />
               <img
-                src="/images/bootstrap-icons/key-fill.svg"
+                src="images/bootstrap-icons/key-fill.svg"
                 class="input-group-text"
               />
             </div>
           </div>
           <!-- FORM botão de entrar -->
-          <button id="btn-entrar" class="btn btn-danger m-1">Entrar</button>
-          <!-- FORM botão de carregar -->
-          <button
-            id="btn-entrar-load"
-            class="btn btn-danger"
-            type="button"
-            disabled
-          >
-            <span
-              class="spinner-border spinner-border-sm m-1"
-              role="status"
-              aria-hidden="true"
-            ></span>
-            Carregando...
-          </button>
+          <input type="submit" class="btn btn-danger m-1" value="Entrar" />
+
           <!-- FORM botão de cadastro -->
           <button class="float-end m-2 btn btn-outline-danger">
             <a class="text-white text-decoration-none" href="cadastro.html"
@@ -94,18 +83,18 @@
 
     <footer>
       <!-- Importação dos script do jQuery e Bootstrap 5 -->
-      <script src="/js/jquery-3.6.0.min.js"></script>
-      <script src="/js/bootstrap.js"></script>
+      <script src="js/jquery-3.6.0.min.js"></script>
+      <script src="js/bootstrap.js"></script>
 
       <script>
-        $(document).ready(function () {
+        /** $(document).ready(function () {
           $("#btn-entrar-load").hide(0);
           // Função serve para poder alterar o botão de "entrar" para o botão de "carregando".
           $("#btn-entrar").click(function () {
             $("#btn-entrar").hide(270);
             $("#btn-entrar-load").show(270);
           });
-        });
+        });*/
       </script>
     </footer>
   </body>

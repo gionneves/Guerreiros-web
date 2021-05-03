@@ -23,13 +23,22 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="View_os.php"
-            >Minas O.S.</a
+            >Minhas O.S.</a
           >
         </li>
       </ul>
     </nav>
     <!-- Final da NAV -->
-    <br />
+    <br/>
+    <div class="container-fluid mc-2">
+      <div class="text-end">
+        <?php
+        require_once '../php/Conexao.php';
+        echo "<p class=''>".$_SESSION['cliente_nome']."</p>";
+        ?>
+    </div>
+  </div>
+    <br/>
     <div class="container">
       <div class="container text-center bg-transparence rounded">
         <!-- Inicio lista de O.S. -->
