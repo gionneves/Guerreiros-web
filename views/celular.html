@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="css/celular_css.css" />
+  <title>O.S. Celular</title>
+</head>
+
+<body>
+  <div class="form-box">
+    <h2>Celular</h2>
+    <form action="php/enviar_osCelular.php" method="POST">
+      <div class="phone-box">
+        <label for="marca">Marca: </label>
+        <input type="text" name="marca" id="marcaCelular" placeholder="Samsung, Motorola, Apple" required />
+        <label for="modelo">Modelo: </label>
+        <input type="text" name="modelo" id="modeloCelular" placeholder="J6 Plus, Moto G8, iPhone 7" required />
+      </div>
+
+      <div class="checkbox-box">
+        <input type="checkbox" name="check[]" id="tela_display" value="tela_display" />
+        <label for="tela_display">Tela display</label>
+      </div>
+
+      <div class="checkbox-box">
+        <input type="checkbox" name="check[]" id="Touch_screen" value="Touch_screen" />
+        <label for="Touch_screen">Touch screen</label>
+      </div>
+
+      <div class="checkbox-box">
+        <input type="checkbox" name="check[]" id="Botões_mn" value="Botões_mn" />
+        <label for="Botões_mn">Botões +/-</label>
+      </div>
+
+      <div class="checkbox-box">
+        <input type="checkbox" name="check[]" id="Botao_pow" value="Botao_pow" />
+        <label for="Botao_pow">Botão Power</label>
+      </div>
+
+      <div class="checkbox-box">
+        <input type="checkbox" name="check[]" id="Sensor_lig" value="Sensor_lig" />
+        <label for="Sensor_lig">Sensor de Ligação</label>
+      </div>
+
+      <div class="checkbox-box">
+        <input type="checkbox" name="check[]" id="Bluetooth" value="Bluetooth" />
+        <label for="Bluetooth">Bluetooth</label>
+      </div>
+
+      <div class="checkbox-box">
+        <input type="checkbox" name="check[]" id="WiFi" value="WiFi" />
+        <label for="WiFi">Wi-Fi</label>
+      </div>
+      <div class="checkbox-box">
+        <input type="checkbox" name="check[]" id="Carcaca" value="Carcaça" />
+        <label for="Carcaca">Carcaça</label>
+      </div>
+      <div class="checkbox-box">
+        <input type="checkbox" name="check[]" id="Alto_falante" value="Alto_falante" />
+        <label for="Alto_falante">Alto falante</label>
+      </div>
+
+      <div class="checkbox-box">
+        <input type="checkbox" name="check[]" id="Microfone" value="Microfone" />
+        <label for="Microfone">Microfone</label>
+      </div>
+
+      <div class="checkbox-box">
+        <input type="checkbox" name="check[]" id="Bateria" value="Bateria" />
+        <label for="Bateria">Bateria</label>
+      </div>
+
+      <div class="checkbox-box">
+        <input type="checkbox" name="check[]" id="Digital" value="Digital" />
+        <label for="Digital">Digital</label>
+      </div>
+
+      <div class="checkbox-box">
+        <input type="checkbox" name="check[]" id="Conector_carga" value="Conector_carga" />
+        <label for="Conector_carga">Conector de carga</label>
+      </div>
+
+      <div class="checkbox-box">
+        <input type="checkbox" name="check[]" id="Falante_auricular" value="Falante_auricular" />
+        <label for="Falante_auricular">Falante auricular</label>
+      </div>
+
+      <div class="checkbox-box">
+        <input type="checkbox" name="check[]" id="Camera_frontal" value="Camera_frontal" />
+        <label for="Camera_frontal">Câmera frontal</label>
+      </div>
+
+      <div class="checkbox-box">
+        <input type="checkbox" name="check[]" id="Tampa_traseira" value="Tampa_traseira" />
+        <label for="Tampa_traseira">Tampa traseira</label>
+      </div>
+      <div class="checkbox-box">
+        <input type="checkbox" name="check[]" id="Outros" value="Outros" />
+        <label for="Outros">Outros</label>
+      </div>
+
+      <div class="phone-box">
+        <label for="emei">EMEI: </label>
+        <input type="text" name="emei" id="emei" maxlength="15" required />
+
+        <label for="Adicional">Adicional: </label>
+        <textarea type="text" name="Adicional" id="Adicional" rows="2" required></textarea>
+
+        <label for="hora">Hoario de retirada</label>
+        <input type="text" name="hora" id="hora" required />
+      </div>
+
+      <div class="btn-box">
+        <input type="submit" value="Enviar O.S.!" />
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const hora = document.querySelector("#hora");
+
+    hora.addEventListener("keyup", () => {
+      let value = hora.value
+        .replace(/[^0-9]/g, "")
+        .replace(/^([\d]{2})([\d]{2})?/, "$1:$2");
+
+      hora.value = value;
+    });
+  </script>
+</body>
+
+</html>

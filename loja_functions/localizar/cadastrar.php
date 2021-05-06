@@ -2,7 +2,7 @@
 
 <?php
 
-include "conexao.php";
+include "../php/conexao.php";
 
 $login = $_POST["login_db"];
 $senha = $_POST["senha_db"];
@@ -49,12 +49,13 @@ if ($stmt2->rowCount() > 0) {
     <link rel="stylesheet" href="css/style.css" />
     <link href="css/animation.css" rel="stylesheet" type="text/css" />
 
-    <script>
-        function pageRedirect() {
-            window.location.replace("http://gbozpgot.mooo.com/localizar/cl.php");
-        }
-        setTimeout("pageRedirect()", 2000);
-    </script>
+    <button onclick="goBack()">Voltar</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
 
 </head>
 

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teste de Cadastro</title>
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="css/signin.css" />
+</head>
+
+<body>
+  <div class="signin-box">
+    <!-- <div class="image-box">
+        <img src="images/vetor_pequeno.png" />
+      </div> -->
+    <h2>Cadastre-se</h2>
+    <form action="php/signin.php" method="post">
+      <div class="sign-box">
+        <label for="nome">Nome: </label>
+        <input type="text" name="nome" id="nome" required />
+      </div>
+
+      <div class="sign-box">
+        <label for="cpf">CPF: </label>
+        <input type="text" name="cpf" id="cpf" maxlength="14" required />
+      </div>
+
+      <div class="sign-box">
+        <label for="rg">RG: </label>
+        <input type="text" name="rg" id="rg" maxlength="12" required />
+      </div>
+
+      <div class="sign-box">
+        <label for="nascimento">Data de nascimento: </label>
+        <input type="text" name="nascimento" id="nascimento" maxlength="10" required />
+      </div>
+
+      <div class="sign-box">
+        <label for="cep">CEP: </label>
+        <input type="text" name="cep" id="cep" maxlength="9" required />
+      </div>
+
+      <div class="sign-box">
+        <label for="endereco">Endereço: </label>
+        <input type="text" name="endereco" id="endereco" required />
+      </div>
+
+      <div class="sign-box">
+        <label for="endereco_numero">Número: </label>
+        <input type="number" name="endereco_numero" id="endereco_numero" required />
+      </div>
+      <div class="sign-box">
+        <label for="complemento">Complemento: </label>
+        <input type="text" name="complemento" id="complemento" required />
+      </div>
+      <div class="sign-box">
+        <label for="bairro">Bairro: </label>
+        <input type="text" name="bairro" id="bairro" required />
+      </div>
+
+      <div class="sign-box">
+        <label for="cidade">Cidade: </label>
+        <input type="text" name="cidade" id="cidade" required />
+      </div>
+
+      <div class="sign-box">
+        <label for="uf">UF: </label>
+        <select id="uf" name="uf">
+          <option value="AC">Acre</option>
+          <option value="AL">Alagoas</option>
+          <option value="AP">Amapá</option>
+          <option value="AM">Amazonas</option>
+          <option value="BA">Bahia</option>
+          <option value="CE">Ceará</option>
+          <option value="DF">Distrito Federal</option>
+          <option value="ES">Espírito Santo</option>
+          <option value="GO">Goiás</option>
+          <option value="MA">Maranhão</option>
+          <option value="MT">Mato Grosso</option>
+          <option value="MS">Mato Grosso do Sul</option>
+          <option value="MG">Minas Gerais</option>
+          <option value="PA">Pará</option>
+          <option value="PB">Paraíba</option>
+          <option value="PR">Paraná</option>
+          <option value="PE">Pernambuco</option>
+          <option value="PI">Piauí</option>
+          <option value="RJ">Rio de Janeiro</option>
+          <option value="RN">Rio Grande do Norte</option>
+          <option value="RS">Rio Grande do Sul</option>
+          <option value="RO">Rondônia</option>
+          <option value="RR">Roraima</option>
+          <option value="SC">Santa Catarina</option>
+          <option value="SP">São Paulo</option>
+          <option value="SE">Sergipe</option>
+          <option value="TO">Tocantins</option>
+        </select>
+      </div>
+
+      <div class="sign-box">
+        <label for="telefone_fixo">Telefone Fixo (Opicional): </label>
+        <input type="text" name="telefone_fixo" id="telefone_fixo" maxlength="13" />
+      </div>
+
+      <div class="sign-box">
+        <label for="telefone_celular">Telefone Celular: </label>
+        <input type="text" name="telefone_celular" id="telefone_celular" maxlength="14" required />
+      </div>
+
+      <div class="sign-box">
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email" required />
+      </div>
+
+      <div class="sign-box">
+        <label for="senha">Senha: </label>
+        <input type="password" name="senha" id="senha" maxlength="16" required />
+
+        <label for="confirmar_senha">Confirmar a senha: </label>
+        <input type="password" name="confirmar_senha" id="confirmar_senha" maxlength="16" required />
+
+        <span id="mensagem_senha"></span>
+      </div>
+
+      <div class="btn-box">
+        <button type="submit">Cadastrar-se</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    $("#senha, #confirmar_senha").on("keyup", function () {
+      if ($("#senha").val() == $("#confirmar_senha").val()) {
+        $("#mensagem_senha")
+          .html("As senhas coincidem")
+          .css("color", "green");
+      } else $("#mensagem_senha").html("As senhas não coincidem").css("color", "red");
+    });
+
+    /*
+    Função abaixo serve para auto pontuar o CPF
+    */
+    const cpf = document.querySelector("#cpf");
+
+    cpf.addEventListener("keyup", () => {
+      let value = cpf.value
+        .replace(/[^0-9]/g, "")
+        .replace(/^([\d]{3})([\d]{3})?([\d]{3})?([\d]{2})?/, "$1.$2.$3-$4");
+
+      cpf.value = value;
+    });
+
+    /*
+    Função abaixo serve para auto pontuar o RG
+    */
+    const rg = document.querySelector("#rg");
+
+    rg.addEventListener("keyup", () => {
+      let value = rg.value
+        .replace(/[^0-9]/g, "")
+        .replace(/^([\d]{2})([\d]{3})?([\d]{3})?([\d]{2})?/, "$1.$2.$3-$4");
+
+      rg.value = value;
+    });
+
+    /*
+    Função abaixo serve para auto pontuar a data de Nascmineto
+    */
+    const nascimento = document.querySelector("#nascimento");
+
+    nascimento.addEventListener("keyup", () => {
+      let value = nascimento.value
+        .replace(/[^0-9]/g, "")
+        .replace(/^([\d]{2})([\d]{2})?([\d]{4})?/, "$1/$2/$3");
+
+      nascimento.value = value;
+    });
+
+    /*
+    Função abaixo serve para auto pontuar o Telefone Fixo
+    */
+    const telefone_fixo = document.querySelector("#telefone_fixo");
+
+    telefone_fixo.addEventListener("keyup", () => {
+      let value = telefone_fixo.value
+        .replace(/[^0-9]/g, "")
+        .replace(/^([\d]{2})([\d]{4})?([\d]{4})?/, "($1)$2-$3");
+
+      telefone_fixo.value = value;
+    });
+
+    /*
+    Função abaixo serve para auto pontuar o Telefone Celular
+    */
+    const telefone_celular = document.querySelector("#telefone_celular");
+
+    telefone_celular.addEventListener("keyup", () => {
+      let value = telefone_celular.value
+        .replace(/[^0-9]/g, "")
+        .replace(/^([\d]{2})([\d]{5})?([\d]{4})?/, "($1)$2-$3");
+
+      telefone_celular.value = value;
+    });
+
+    /*
+    Função abaixo serve para auto pontuar o CEP
+    */
+    const cep = document.querySelector("#cep");
+
+    cep.addEventListener("keyup", () => {
+      let value = cep.value
+        .replace(/[^0-9]/g, "")
+        .replace(/^([\d]{5})([\d]{3})?/, "$1-$2");
+
+      cep.value = value;
+    });
+
+    /*
+      Função abaixo serve para puxar dados da rua com o CEP
+    */
+    $("#cep").focusout(function () {
+      $.ajax({
+        url: "https://viacep.com.br/ws/" + $(this).val() + "/json/unicode/",
+        dataType: "json",
+        success: function (resposta) {
+          $("#endereco").val(resposta.logradouro);
+          $("#bairro").val(resposta.bairro);
+          $("#cidade").val(resposta.localidade);
+          $("#uf").val(resposta.uf);
+          $("#endereco_numero").focus();
+        },
+      });
+    });
+  </script>
+</body>
+
+</html>
