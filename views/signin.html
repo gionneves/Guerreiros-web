@@ -5,69 +5,69 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Teste de Cadastro</title>
-  <script src="js/jquery-3.6.0.min.js"></script>
-  <link rel="stylesheet" href="css/signin.css" />
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/guerreiros.css">
+  <title>Cadastre-se</title>
 </head>
 
-<body>
-  <div class="signin-box">
-    <!-- <div class="image-box">
-        <img src="images/vetor_pequeno.png" />
-      </div> -->
-    <h2>Cadastre-se</h2>
-    <form action="php/signin.php" method="post">
-      <div class="sign-box">
-        <label for="nome">Nome: </label>
-        <input type="text" name="nome" id="nome" required />
+<body class="grade">
+  <div class="container text-center m-4">
+    <h2 class="h2">Cadastre-se</h2>
+  </div>
+
+  <div class="container bg-transparence">
+    <form class="row g-3" action="php/signin.php" method="post">
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="nome">Nome</span>
+        <input class="form-control" type="text" name="nome" id="nome" required />
       </div>
 
-      <div class="sign-box">
-        <label for="cpf">CPF: </label>
-        <input type="text" name="cpf" id="cpf" maxlength="14" required />
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="cpf">CPF</span>
+        <input class="form-control" type="text" name="cpf" id="cpf" maxlength="14" required />
       </div>
 
-      <div class="sign-box">
-        <label for="rg">RG: </label>
-        <input type="text" name="rg" id="rg" maxlength="12" required />
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="rg">RG</span>
+        <input class="form-control" type="text" name="rg" id="rg" maxlength="12" required />
       </div>
 
-      <div class="sign-box">
-        <label for="nascimento">Data de nascimento: </label>
-        <input type="text" name="nascimento" id="nascimento" maxlength="10" required />
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="nascimento">Data de nascimento</span>
+        <input class="form-control" type="text" name="nascimento" id="nascimento" maxlength="10" required />
       </div>
 
-      <div class="sign-box">
-        <label for="cep">CEP: </label>
-        <input type="text" name="cep" id="cep" maxlength="9" required />
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="cep">CEP</span>
+        <input class="form-control" type="text" name="cep" id="cep" maxlength="9" required />
       </div>
 
-      <div class="sign-box">
-        <label for="endereco">Endereço: </label>
-        <input type="text" name="endereco" id="endereco" required />
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="endereco">Endereço</span>
+        <input class="form-control" type="text" name="endereco" id="endereco" required />
       </div>
 
-      <div class="sign-box">
-        <label for="endereco_numero">Número: </label>
-        <input type="number" name="endereco_numero" id="endereco_numero" required />
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="endereco_numero">Número</span>
+        <input class="form-control" type="number" name="endereco_numero" id="endereco_numero" required />
       </div>
-      <div class="sign-box">
-        <label for="complemento">Complemento: </label>
-        <input type="text" name="complemento" id="complemento" required />
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="complemento">Complemento</span>
+        <input class="form-control" type="text" name="complemento" id="complemento" required />
       </div>
-      <div class="sign-box">
-        <label for="bairro">Bairro: </label>
-        <input type="text" name="bairro" id="bairro" required />
-      </div>
-
-      <div class="sign-box">
-        <label for="cidade">Cidade: </label>
-        <input type="text" name="cidade" id="cidade" required />
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="bairro">Bairro</span>
+        <input class="form-control" type="text" name="bairro" id="bairro" required />
       </div>
 
-      <div class="sign-box">
-        <label for="uf">UF: </label>
-        <select id="uf" name="uf">
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="cidade">Cidade</span>
+        <input class="form-control" type="text" name="cidade" id="cidade" required />
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="uf">UF: </span>
+        <select class="form-select" id="uf" name="uf">
           <option value="AC">Acre</option>
           <option value="AL">Alagoas</option>
           <option value="AP">Amapá</option>
@@ -98,37 +98,40 @@
         </select>
       </div>
 
-      <div class="sign-box">
-        <label for="telefone_fixo">Telefone Fixo (Opicional): </label>
-        <input type="text" name="telefone_fixo" id="telefone_fixo" maxlength="13" />
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="telefone_fixo">Telefone Fixo (Opicional)</span>
+        <input class="form-control" type="text" name="telefone_fixo" id="telefone_fixo" maxlength="13" />
       </div>
 
-      <div class="sign-box">
-        <label for="telefone_celular">Telefone Celular: </label>
-        <input type="text" name="telefone_celular" id="telefone_celular" maxlength="14" required />
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="telefone_celular">Telefone Celular</span>
+        <input class="form-control" type="text" name="telefone_celular" id="telefone_celular" maxlength="14" required />
       </div>
 
-      <div class="sign-box">
-        <label for="email">Email: </label>
-        <input type="email" name="email" id="email" required />
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="email">Email</span>
+        <input class="form-control" type="email" name="email" id="email" required />
       </div>
 
-      <div class="sign-box">
-        <label for="senha">Senha: </label>
-        <input type="password" name="senha" id="senha" maxlength="16" required />
-
-        <label for="confirmar_senha">Confirmar a senha: </label>
-        <input type="password" name="confirmar_senha" id="confirmar_senha" maxlength="16" required />
-
-        <span id="mensagem_senha"></span>
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="senha">Senha</span>
+        <input class="form-control" type="password" name="senha" id="senha" maxlength="16" required />
       </div>
-
-      <div class="btn-box">
-        <button type="submit">Cadastrar-se</button>
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="confirmar_senha">Confirmar a senha</span>
+        <input class="form-control" type="password" name="confirmar_senha" id="confirmar_senha" maxlength="16"
+          required />
       </div>
-    </form>
+      <span id="mensagem_senha"></span>
   </div>
 
+  <div class="container text-center m-4">
+    <button class="btn btn-primary btn-lg" type="submit">Cadastrar-se</button>
+  </div>
+  </form>
+
+  <script src="/js/jquery-3.6.0.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
   <script>
     $("#senha, #confirmar_senha").on("keyup", function () {
       if ($("#senha").val() == $("#confirmar_senha").val()) {
