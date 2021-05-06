@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/guerreiros.css" />
     <title>Dashboard</title>
   </head>
+
   <body class="bg-light grade">
     <br />
     <!-- Navegação entre Dashboard e "Minhas O.S." -->
@@ -29,67 +30,78 @@
       </ul>
     </nav>
     <!-- Final da NAV -->
-    <br/>
+    <br />
     <div class="container-fluid mc-2">
       <div class="text-end">
-        <?php
-        require_once '../php/Conexao.php';
-        echo "<p class=''>".$_SESSION['cliente_nome']."</p>";
+        <!-- Código PHP para pode puxar o nome do cliente e mostra na tela -->
+        <?php 
+          require_once '../php/Conexao.php';
+          echo "<p>".$_SESSION['cliente_nome']."</p>";
         ?>
+      </div>
     </div>
-  </div>
-    <br/>
+    <br />
     <div class="container">
       <div class="container text-center bg-transparence rounded">
         <!-- Inicio lista de O.S. -->
         <div class="row">
           <!-- O.S. de celular -->
           <div class="col-sm m-2">
-            <img
-              src="/images/os_celular.png"
-              alt="O.S. Celular"
-              width="175em"
-              height="105em"
-            />
+            <a href="">
+              <img
+                src="/images/os_celular.png"
+                alt="O.S. Celular"
+                width="175em"
+                height="105em"
+              />
+            </a>
             <h3 class="h3 text-white">Celular</h3>
           </div>
-          <!-- O.S. de Videogame -->
+          <!-- O.S>. de Videogame -->
           <div class="col-sm m-2">
-            <img
-              src="/images/os_videogame.png"
-              alt="O.S. Videogame"
-              width="175em"
-              height="105em"
-            />
+            <a href="">
+              <img
+                src="/images/os_videogame.png"
+                alt="O.S. Videogame"
+                width="175em"
+                height="105em"
+              />
+            </a>
             <h3 class="h3 text-white">Videogame</h3>
           </div>
           <!-- O.S. de Tablet -->
           <div class="col-sm m-2">
-            <img
-              src="/images/os_tablet.png"
-              alt="O.S. Tablet"
-              width="175em"
-              height="105em"
-            />
+            <a href="">
+              <img
+                src="/images/os_tablet.png"
+                alt="O.S. Tablet"
+                width="175em"
+                height="105em"
+              />
+            </a>
             <h3 class="h3 text-white">Tablet</h3>
           </div>
           <!-- O.S. de Ar condicionado -->
           <div class="col-sm m-2">
-            <img
-              src="/images/os_arCondicionado.png"
-              alt="O.S. Ar condicionado"
-              width="175em"
-              height="105em"
-            />
+         <a href="">
+           <img
+           src="/images/os_arCondicionado.png"
+           alt="O.S. Ar condicionado"
+           width="175em"
+           height="105em"
+           />
+          </a> 
             <h3 class="h3 text-white">Ar condicionado</h3>
           </div>
           <div class="col-sm m-2">
-            <img
+            <a href="">
+              <img
               src="/images/os_helpdesk.png"
               alt="O.S. Helpdesk"
               width="175em"
               height="105em"
-            />
+              />
+              </a>
             <h3 class="h3 text-white">Help-desk</h3>
           </div>
         </div>

@@ -1,0 +1,55 @@
+  <html lang="pt-br">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Sistema de logout após 15 minustos de inatividade -->
+    <meta http-equiv="refresh" content="900;url=/index.html" />
+    <!-- Importação do estilo Bootstrap 5 e código customizado Guerreiros -->
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/guerreiros.css" />
+    <title>Dashboard da loja</title>
+  </head>
+
+  <body class="bg-light grade">
+    <!-- Navegação entre Dashboard e "Minhas O.S." -->
+    <nav>
+      <ul class="nav nav-tabs nav-fill bg-white">
+        <li class="nav-item">
+          <a class="nav-link active disabled" aria-current="page" href="#">Dashboard</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Final da NAV -->
+    <br />
+    <div class="container">
+      <div class="container text-center bg-transparence rounded">
+        <!-- Inicio lista de O.S. -->
+        <div class="row">
+          <!-- Localizador de login -->
+          <div class="col-sm m-2">
+            <a href="/loja_functions/localizar/index.html">
+              <!-- Ir para o localizador de login -->
+              <img src="/images/vetor_pequeno.png" alt="Localizador_login" width="175em" height="105em" />
+            </a>
+            <h3 class="h3 text-white">Localizador de login</h3>
+          </div>
+          <!-- Cadastro zaaz -->
+          <div class="col-sm m-2">
+            <a href="/loja_functions/zaaz/index.html">
+              <!-- Ir Para o cadastro da ZAAZ -->
+              <img src="/images/zaaz.png" alt="Cadastro zaaz" width="175em" height="105em" class="rounded rounded-2" />
+            </a>
+            <h3 class="h3 text-white">Cadastro ZAAZ</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <script src="/js/jquery-3.6.0.min.js"></script>
+      <script src="/js/bootstrap.js"></script>
+    </footer>
+  </body>
+
+  </html>

@@ -30,7 +30,7 @@ if (isset($_POST["email"]) && !empty($_POST["email"]) && isset($_POST["password"
          * de estado esteja escrito "GG", caso estiver, de automático já é cadastrado como login de loja.
          */
         if ($_SESSION['cliente_estado'] == 'GG') {
-            header("Location: /dashboard/Loja_dashboard.php"); // Leva para o Dashboard da loja.
+            header("Location: /dashboard/loja_dashboard.html"); // Leva para o Dashboard da loja.
         } else {
             header("Location: /dashboard/dashboard.php"); // Leva para o Dashboard do usuário.
         }

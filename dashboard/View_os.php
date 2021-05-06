@@ -87,17 +87,6 @@
                 echo '<th>'.$os_videogame['modelo'].'</th>';
                 echo '</tr>';
               } ?>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
         </tbody>
       </table>
       </div>
@@ -109,7 +98,7 @@
         <h2>Tablet</h2>
       </div>
       <div class="os_tablet">
-      <table class="tablet">
+      <table class="table">
         <thead>
           <tr>
             <th scope="col">O.S.</th>
@@ -128,17 +117,36 @@
                 echo '<th>'.$os_tablet['modelo'].'</th>';
                 echo '</tr>';
               } ?>
+        </tbody>
+      </table>
+      </div>
+    </div>
+    <!-- HelpDesk OS View -->
+    <br />
+    <div class="container bg-white rounded border border-dark">
+      <div class="text-center">
+        <h2>Ar condicionado</h2>
+      </div>
+      <div class="os_helpdesk">
+      <table class="table">
+        <thead>
           <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
+            <th scope="col">O.S.</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Estado</th>
           </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
+        </thead>
+        <tbody>
+        <?php
+              $sql = "SELECT * FROM os_helpdesk WHERE cliente = '".$_SESSION['cliente_id']."'";
+              foreach ($pdo->query($sql) as $os_helpdesk) { 
+                echo '<tr>';
+                echo '<th scope="row">'.$os_helpdesk['id'].'</th>';
+                echo '<th>'.$os_helpdesk['marca'].'</th>';
+                echo '<th>'.$os_helpdesk['modelo'].'</th>';
+                echo '</tr>';
+              } ?>
         </tbody>
       </table>
       </div>

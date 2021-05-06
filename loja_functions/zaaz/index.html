@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewpoirt" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="refresh" content="900;url=/index.html" />
+  <link rel="stylesheet" href="/css/bootstrap.css" />
+  <link rel="stylesheet" href="/css/guerreiros.css" />
+  <script src="/js/bootstrap.js"></script>
+  <script src="/js/jquery-3.6.0.min.js"></script>
+  <title>Cadastro zaaz</title>
+</head>
+
+<body class="bg-light grade">
+
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Guerreiros-Multi</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center">
+            <p>
+              <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+              Carregando...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center m-3">
+    <img src="/images/zaaz.png" alt="Cadastro zaaz" width="255em" height="115em" class="rounded rounded-2" />
+    <h2 class="h2 m-3">Cadastro ZAAZ</h2>
+    <div class="">
+      <p>
+        Uma parceria <strong>Guerriro's</strong> com a
+        <strong>ZAAZ</strong> <small>telecon</small>
+      </p>
+    </div>
+  </div>
+  <div class="container bg-transparence">
+    <form class="row g-3 was-validated" action="/php/Cadastro_Zaaz.php" method="post" autocomplete="off">
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="nome_vendedor">Nome do vendedor</span>
+        <input class="form-control" type="text" name="nome_vendedor" id="nome_vendedor" required />
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="nome_cliente">Nome do cliente</span>
+        <input class="form-control" type="text" name="nome_cliente" id="nome_cliente" required />
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="email">Email</span>
+        <input class="form-control" type="email" name="email" id="email" required />
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="cpf">CPF</span>
+        <input class="form-control" type="text" name="cpf" id="cpf" maxlength="14" required />
+        <span class="input-group-text" for="rg">RG</span>
+        <input class="form-control" type="text" name="rg" id="rg" maxlength="12" required />
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="nascimento">Data de nascimento</span>
+        <input class="form-control" type="text" name="nascimento" id="nascimento" maxlength="10" required />
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="telefone_fixo">Telefone Fixo (Opicional)</span>
+        <input class="form-control" type="text" name="telefone_fixo" id="telefone_fixo" maxlength="13" />
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="telefone_celular">Telefone Celular</span>
+        <input class="form-control" type="text" name="telefone_celular" id="telefone_celular" maxlength="14" required />
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="cep">CEP</span>
+        <input class="form-control" type="text" name="cep" id="cep" maxlength="9" required />
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="endereco">Endereço</span>
+        <input class="form-control" type="text" name="endereco" id="endereco" required />
+      </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="bairro">Bairro</label>
+        <input class="form-control" type="text" name="bairro" id="bairro" required />
+
+        <span class="input-group-text" for="endereco_numero">Número</span>
+        <input class="form-control col-sm" type="number" name="endereco_numero" id="endereco_numero" required />
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="cidade">Cidade</span>
+        <input class="form-select" type="text" name="cidade" id="cidade" required />
+
+        <span class="input-group-text" for="uf">UF</span>
+        <select class="form-select col-sm" id="uf" name="uf">
+          <option value="AC">Acre</option>
+          <option value="AL">Alagoas</option>
+          <option value="AP">Amapá</option>
+          <option value="AM">Amazonas</option>
+          <option value="BA">Bahia</option>
+          <option value="CE">Ceará</option>
+          <option value="DF">Distrito Federal</option>
+          <option value="ES">Espírito Santo</option>
+          <option value="GO">Goiás</option>
+          <option value="MA">Maranhão</option>
+          <option value="MT">Mato Grosso</option>
+          <option value="MS">Mato Grosso do Sul</option>
+          <option value="MG">Minas Gerais</option>
+          <option value="PA">Pará</option>
+          <option value="PB">Paraíba</option>
+          <option value="PR">Paraná</option>
+          <option value="PE">Pernambuco</option>
+          <option value="PI">Piauí</option>
+          <option value="RJ">Rio de Janeiro</option>
+          <option value="RN">Rio Grande do Norte</option>
+          <option value="RS">Rio Grande do Sul</option>
+          <option value="RO">Rondônia</option>
+          <option value="RR">Roraima</option>
+          <option value="SC">Santa Catarina</option>
+          <option value="SP">São Paulo</option>
+          <option value="SE">Sergipe</option>
+          <option value="TO">Tocantins</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="complemento">Complemento</span>
+        <input class="form-control" type="text" name="complemento" id="complemento" required />
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="referencia">Referencia</span>
+        <input class="form-control" type="text" name="referencia" id="referencia" required />
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="internet">Plano</span>
+        <select class="form-select col-sm" id="internet" name="internet">
+          <option value="20MB">20MB</option>
+          <option value="35MB">35MB</option>
+          <option value="60MB">60MB</option>
+          <option value="150MB">150MB</option>
+          <option value="200MB">200MB</option>
+          <option value="300MB">300MB</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="form-check mt-1 form-check-inline">
+          <input class="form-check-input" type="radio" id="PRE" name="tipo_plano" value="PRE" required />
+          <label class="form-check-label" for="PRE">PRÉ</label>
+        </div>
+        <div class="form-check mt-1 form-check-inline">
+          <input class="form-check-input" type="radio" id="POS" name="tipo_plano" value="POS" required />
+          <label class="form-check-label" for="POS">PÓS</label>
+        </div>
+
+        <span class="input-group-text" for="dia_vencimento">Dia de vencimento</span>
+        <input class="form-control col-sm" type="number" name="dia_vencimento" id="dia_vencimento" maxlength="2"
+          required />
+      </div>
+  </div>
+
+  <div class="container text-center m-3">
+    <div class="visible" id="btn-normal-div">
+      <button class="btn btn-primary" id="btn-normal" type="submit" data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop">
+        CADASTRAR CLIENTE
+      </button>
+    </div>
+  </div>
+  </form>
+
+  <script>
+    /*
+  Função abaixo serve para auto pontuar o CPF
+  */
+    const cpf = document.querySelector("#cpf");
+
+    cpf.addEventListener("keyup", () => {
+      let value = cpf.value
+        .replace(/[^0-9]/g, "")
+        .replace(/^([\d]{3})([\d]{3})?([\d]{3})?([\d]{2})?/, "$1.$2.$3-$4");
+
+      cpf.value = value;
+    });
+
+    /*
+    Função abaixo serve para auto pontuar o RG
+    */
+    const rg = document.querySelector("#rg");
+
+    rg.addEventListener("keyup", () => {
+      let value = rg.value
+        .replace(/[^0-9]/g, "")
+        .replace(/^([\d]{2})([\d]{3})?([\d]{3})?([\d]{2})?/, "$1.$2.$3-$4");
+
+      rg.value = value;
+    });
+
+    /*
+    Função abaixo serve para auto pontuar a data de Nascmineto
+    */
+    const nascimento = document.querySelector("#nascimento");
+
+    nascimento.addEventListener("keyup", () => {
+      let value = nascimento.value
+        .replace(/[^0-9]/g, "")
+        .replace(/^([\d]{2})([\d]{2})?([\d]{4})?/, "$1/$2/$3");
+
+      nascimento.value = value;
+    });
+
+    /*
+    Função abaixo serve para auto pontuar o Telefone Fixo
+    */
+    const telefone_fixo = document.querySelector("#telefone_fixo");
+
+    telefone_fixo.addEventListener("keyup", () => {
+      let value = telefone_fixo.value
+        .replace(/[^0-9]/g, "")
+        .replace(/^([\d]{2})([\d]{4})?([\d]{4})?/, "($1)$2-$3");
+
+      telefone_fixo.value = value;
+    });
+
+    /*
+    Função abaixo serve para auto pontuar o Telefone Celular
+    */
+    const telefone_celular = document.querySelector("#telefone_celular");
+
+    telefone_celular.addEventListener("keyup", () => {
+      let value = telefone_celular.value
+        .replace(/[^0-9]/g, "")
+        .replace(/^([\d]{2})([\d]{5})?([\d]{4})?/, "($1)$2-$3");
+
+      telefone_celular.value = value;
+    });
+
+    /*
+    Função abaixo serve para auto pontuar o CEP
+    */
+    const cep = document.querySelector("#cep");
+
+    cep.addEventListener("keyup", () => {
+      let value = cep.value
+        .replace(/[^0-9]/g, "")
+        .replace(/^([\d]{5})([\d]{3})?/, "$1-$2");
+
+      cep.value = value;
+    });
+
+    /*
+    Função abaixo serve para puxar dados da rua com o CEP
+    */
+    $("#cep").focusout(function () {
+      $.ajax({
+        url: "https://viacep.com.br/ws/" + $(this).val() + "/json/unicode/",
+        dataType: "json",
+        success: function (resposta) {
+          $("#endereco").val(resposta.logradouro);
+          $("#bairro").val(resposta.bairro);
+          $("#cidade").val(resposta.localidade);
+          $("#uf").val(resposta.uf);
+          $("#endereco_numero").focus();
+        },
+      });
+    });
+  </script>
+</body>
+
+</html>
