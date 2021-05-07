@@ -9,6 +9,7 @@ $se_nome = $_SESSION['cliente_nome'];
 $sql_cliente = 'INSERT INTO logs_cliente (id_cliente, nome_cliente, atividade, resenha) VALUES (?, ?, ?, ?);';
 */
 
+/* Pega informações do HTML e atribui em váriaveis */
 
 $loja = $_SESSION['cliente_nome'];
 $vendedor = $_POST['nome_vendedor'];
@@ -31,13 +32,18 @@ $plano_mb = $_POST['internet'];
 $tipo_plano = $_POST['tipo_plano'];
 $dia_vencimento = $_POST['dia_vencimento'];
 
+/* Identifica se o CPF já está cadastrado no banco de dados */
 $sql_verifica = "SELECT * FROM os_zaaz WHERE cpf_cliente = :CPF";
 $stmt = $pdo->prepare($sql_verifica);
 $stmt->bindParam(':CPF', $cpf);
 $stmt->execute();
 
+/**
+ * Caso já esteja cadastado, retorna um erro avisando que já está cadastado!
+ */
 if ($stmt->rowCount() > 0) {
     echo 'ERRO, cliente ja cadastrado';
+    
 } else {
 
     $sql_insert = "INSERT INTO os_zaaz (loja, nome_vendedor, nome_cliente, email_cliente, cpf_cliente, rg_cliente, nascimento_cliente, fixo_cliente, celular_cliente, cep_cliente, endereco_cliente, numero_cliente, municipio_cliente, bairro_cliente, estado_cliente, complemento_cliente, referencia_cliente, plano_cliente, tipo_plano, dia_vencimento)

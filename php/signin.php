@@ -17,6 +17,7 @@ $teleResidencia = $_POST['telefone_fixo'];
 $teleCelular = $_POST['telefone_celular'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
+$senha_ver = 
 
 $sql_verifica = "SELECT * FROM usuarios WHERE cpf = :CPF";
 $stmt = $pdo->prepare($sql_verifica);
@@ -24,7 +25,8 @@ $stmt->bindParam(':CPF', $cpf);
 $stmt->execute();
 
 if ($stmt->rowCount() > 0) {
-
+    $html = file_get_html('/views/error_cadastro.html');
+    print $html; 
     $retornoApp = array("CADASTRO" => "CPF_ERRO");
 } else {
 
@@ -49,7 +51,7 @@ if ($stmt->rowCount() > 0) {
 
     if ($stmt->execute()) {
         $retornoApp = array("CADASTRO" => "SUCESSO");
-        header("Location: /Guerreiros/index.html");
+        header("Location: /index.html");
     } else {
         $retornoApp = array("CADASTRO" => "ERRO");
     }

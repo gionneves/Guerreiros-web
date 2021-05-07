@@ -1,11 +1,13 @@
 <?php
 
 require 'conexao.php';
-require "conexaolog.php";
+//require "conexaolog.php";
 
+/*
 $se_user = $_SESSION['cliente_id'];
 $se_nome = $_SESSION['cliente_nome'];
 $sql_cliente = 'INSERT INTO logs_cliente (id_cliente, nome_cliente, atividade, resenha) VALUES (?, ?, ?, ?);';
+*/
 
 $cliente = $_SESSION['cliente_id'];
 $marca = $_POST['marca'];
@@ -34,8 +36,8 @@ $stmt->bindParam(':DATA_RETIRADA', $data);
 $stmt->bindParam(':HORA_RETIRADA', $hora_retirada);
 
 if ($stmt->execute()) {
-    $stmt = $pdo2->prepare($sql_cliente)->execute([$se_user, $se_nome, "Criação de O.S.", "Cliente criou O.S. de um " + $marca]);
-    header("Location: /Guerreiros/myos.php");
+    //$stmt = $pdo2->prepare($sql_cliente)->execute([$se_user, $se_nome, "Criação de O.S.", "Cliente criou O.S. de um " + $marca]);
+    header("Location: /dashboard/View_os.php");
 } else {
     echo "ERRO: e:01: Fail to connect!";
 }

@@ -15,25 +15,31 @@
 </head>
 
 <body class="container grade">
+  <!-- Titulo da página -->
   <div class="container text-center m-4">
     <h2 class="h2">Celular</h2>
     <div class="text-decoration">Criação de O.S. para o seu telefone</div>
   </div>
   <div class="container bg-transparence text-light">
+
+    <!-- Início da FORM -->
     <form class="row g-3" action="/php/enviar_osCelular.php" method="POST">
 
+      <!-- Textbox da marca -->
       <div class="input-group mb-3">
         <label class="input-group-text" for="marcaCelular">Marca</label>
         <input class="form-control" type="text" name="marcaCelular" id="marcaCelular"
           placeholder="Samsung, Motorola, Apple" required />
       </div>
 
+      <!-- Textbox do modelo -->
       <div class="input-group mb-3">
         <span class="input-group-text" for="modelo">Modelo</span>
         <input class="form-control" type="text" name="modelo" id="modeloCelular"
           placeholder="J6 Plus, Moto G8, iPhone 7" required />
       </div>
 
+      <!-- Checkboxes de todos os problemas que possam dar no celular -->
       <div class="container m-auto row">
         <div class="form-check m-1 mb-2 col-md bg-transparence-light rounded rounded-2">
           <input class="form-check-input m-1" type="checkbox" name="check[]" id="tela_display" value="tela_display" />
@@ -123,14 +129,19 @@
         </div>
       </div>
 
+      <!-- Textbox do EMEI -->
       <div class="input-group mb-3">
         <span class="input-group-text" for="emei">EMEI</span>
         <input class="form-control" type="text" name="emei" id="emei" maxlength="15" required />
       </div>
+
+      <!-- Textarea de adicional do cliente -->
       <div class="input-group mb-3">
         <span class="input-group-text" for="Adicional">Adicional</span>
         <textarea class="form-control" type="text" name="Adicional" id="Adicional" rows="1" required></textarea>
       </div>
+
+      <!-- Textbox do horario que ele quer a retirada -->
       <div class="input-group mb-3">
         <label class="input-group-text" for="hora">Hoario de retirada</label>
         <input class="form-control" type="text" name="hora" id="hora" required />
