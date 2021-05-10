@@ -25,9 +25,8 @@ $stmt->bindParam(':CPF', $cpf);
 $stmt->execute();
 
 if ($stmt->rowCount() > 0) {
-    $html = file_get_html('/views/error_cadastro.html');
-    print $html; 
-    $retornoApp = array("CADASTRO" => "CPF_ERRO");
+    header("Location: /views/error_cadastro.html");
+//    $retornoApp = array("CADASTRO" => "CPF_ERRO");
 } else {
 
     $sql_insert = "INSERT INTO usuarios (nome, cpf, rg, nascimento, cep, endereco, numero, bairro, municipio, estado, complemento, teleResidencia, teleCelular, email, senha) VALUES (:NOME, :CPF, :RG, :NASCIMENTO, :CEP, :ENDERECO, :NUMERO, :BAIRRO, :MUNICIPIO, :ESTADO, :COMPLEMENTO, :TELERESIDENCIA, :TELECELULAR, :EMAIL, :SENHA);";

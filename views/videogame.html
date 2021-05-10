@@ -6,40 +6,97 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>O.S. Videogame</title>
-  <link rel="stylesheet" href="css/videogame_css.css" />
+  <link rel="stylesheet" href="/css/bootstrap.css" />
+  <link rel="stylesheet" href="/css/guerreiros.css" />
   <script src="js/jquery-3.6.0.min.js"></script>
 </head>
 
-<body>
-  <div class="form-box">
-    <h2>Videogame</h2>
-    <form action="php/enviar_osVideogame.php" method="POST">
-      <div class="phone-box">
-        <label for="marca">Marca: </label>
-        <input type="text" name="marca" id="marcaVideogame" placeholder="Sony, Microsoft, Outros" required />
-        <label for="modelo">Modelo: </label>
-        <input type="text" name="modelo" id="modeloVideogame" placeholder="Playstation 3, Xbox one S, Raspberry"
-          required />
-        <label for="modelo">Serial: </label>
-        <input type="text" name="serial" id="serialVideogame" placeholder="123456789012345" required />
-        <label for="acessorio">Acessório: </label>
-        <input type="text" name="acessorio" id="acessorioVideogame" placeholder="Controle e fonte" required />
+<body class="container grade">
 
-        <label for="defeito_cliente">Defeitos: </label>
-        <textarea type="text" name="defeito_cliente" id="defeito_clienteVideogame"
+  <div class="container text-center m-4">
+    <h2 class="h2">Video-games</h2>
+    <div class="text-decoration">Criação de O.S. para o seu telefone</div>
+  </div>
+
+  <div class="container bg-transparence text-light rounded rounded-2">
+
+    <form class="row g-3" action="/php/enviar_osVideogame.php" method="POST">
+      <!-- Textbox da marca -->
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="marca">Marca</label>
+        <input class="form-control" list="listMarca" type="text" name="marca" id="marca"
+          placeholder="Sony, Microsoft, Nintendo" required />
+        <datalist id="listMarca">
+          <option value="Sony"></option>
+          <option value="Microsoft"></option>
+          <option value="Nintendo"></option>
+          <option value="Outros"></option>
+        </datalist>
+      </div>
+
+      <!-- Textbox do modelo -->
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="modelo">Modelo</span>
+        <input class="form-control" type="text" name="modelo" id="modelo" required />
+      </div>
+
+      <!-- Textbox do serial -->
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="serial">Serial</span>
+        <input class="form-control" type="text" name="serial" id="serial" placeholder="123456789012345" required />
+      </div>
+
+      <!-- Textbox dos Acessórios -->
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="acessorioVideogame">Acessório</span>
+        <input class="form-control" type="text" name="acessorioVideogame" id="acessorioVideogame"
+          placeholder="Controle e fonte" required />
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="defeito_cliente">Defeitos</span>
+        <textarea class="form-control" type="text" name="defeito_cliente" id="defeito_clienteVideogame"
           placeholder="Escreva os defeitos aqui" required></textarea>
+      </div>
 
-        <label for="adicional_cliente">Adicional: </label>
-        <textarea type="text" name="adicional_cliente" id="adicional_clienteVideogame"
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="adicional_cliente">Adicional</span>
+        <textarea class="form-control" type="text" name="adicional_cliente" id="adicional_clienteVideogame"
           placeholder="Coloque mais informações" required></textarea>
+        <div class=""></div>
+      </div>
 
-        <label for="hora">Hora: </label>
-        <input type="text" name="hora" id="horaVideogame" placeholder="Coloque mais informações" required />
-        <div class="btn-box">
-          <input type="submit" value="Enviar O.S.!" />
-        </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="hora">Hora</span>
+        <input class="form-control" type="text" name="hora" id="hora" maxlength="5" placeholder="11:30" required />
+      </div>
+
+
+      <div class="text-center m-3">
+        <input class="btn btn-primary btn-lg " type="submit" value="Enviar O.S.!" />
       </div>
     </form>
+    <script>
+      const hora = document.querySelector("#hora");
+
+      hora.addEventListener("keyup", () => {
+        let value = hora.value
+          .replace(/[^0-9]/g, "")
+          .replace(/^([\d]{2})([\d]{2})?/, "$1:$2");
+
+        hora.value = value;
+      });
+
+
+      const serial = document.querySelector("#serial");
+
+      serial.addEventListener("keyup", () => {
+        let value = serial.value
+          .replace(/[^0-9]/g, "")
+
+        serial.value = value;
+      });
+    </script>
   </div>
 </body>
 

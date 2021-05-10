@@ -20,7 +20,7 @@
     <h2 class="h2">Celular</h2>
     <div class="text-decoration">Criação de O.S. para o seu telefone</div>
   </div>
-  <div class="container bg-transparence text-light">
+  <div class="container bg-transparence text-light rounded rounded-2">
 
     <!-- Início da FORM -->
     <form class="row g-3" action="/php/enviar_osCelular.php" method="POST">
@@ -28,8 +28,20 @@
       <!-- Textbox da marca -->
       <div class="input-group mb-3">
         <label class="input-group-text" for="marcaCelular">Marca</label>
-        <input class="form-control" type="text" name="marcaCelular" id="marcaCelular"
+        <input class="form-control" list="listMarcas" type="text" name="marcaCelular" id="marcaCelular"
           placeholder="Samsung, Motorola, Apple" required />
+        <datalist id="listMarcas">
+          <option value="Samsung"></option>
+          <option value="Apple"></option>
+          <option value="Motorola"></option>
+          <option value="LG"></option>
+          <option value="Huawei"></option>
+          <option value="LeNovo"></option>
+          <option value="ASUS"></option>
+          <option value="Nokia"></option>
+          <option value="Sony"></option>
+          <option value="Xiaomi"></option>
+        </datalist>
       </div>
 
       <!-- Textbox do modelo -->
