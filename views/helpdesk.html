@@ -1,26 +1,86 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/guerreiros.css" />
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>O.S. Helpdesk</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <link rel="stylesheet" href="css/helpdesk_css.css" />
-  <script src="js/jquery-3.6.0.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>O.S. Helpdesk</title>
-</head>
+  <body class="grade">
+    <div class="container text-end m-2">
+      <a href="">para o seu negócio? -> </a>
+    </div>
 
-<body>
-  <div class="negocio-box">
-    <a href="">para o seu negócio? -> </a>
-  </div>
+    <div class="container text-center m-4">
+      <h2 class="h2">Helpdesk</h2>
+      <div class="text-decoration">Helpdesk para sua casa.</div>
+    </div>
 
-  <div class="help-box">
-    <h2>Helpdesk</h2>
-    <h3>Pessoal</h3>
-    <form action="php/enviar_osHelpdesk.php" method="post"></form>
-  </div>
-  <script></script>
-</body>
+    <div class="container bg-transparence text-light rounded rounded-2">
+      <!-- FORM início! -->
+      <form
+        class="row g-3 mb-3"
+        action="/php/helpdesk/helpdesk_pessoal.php"
+        method="POST"
+      >
+        <!-- RADIO de configuração de modem -->
+        <div class="form-check mb-3">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="radioGroup"
+            id="ConfigModem"
+            value="Configuração de Modem"
+          />
+          <label class="form-check-label" for="ConfigModem"
+            >Configuração de modem.</label
+          >
+        </div>
+        <!-- RADIO de configuração de roteador -->
+        <div class="form-check mb-3">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="radioGroup"
+            id="ConfigRoteador"
+            value="Configurar Roteador"
+          />
+          <label class="form-check-label" for="ConfigRoteador"
+            >Configuração de Roteador</label
+          >
+        </div>
+        <!-- RADIO de configuração de repetidor -->
+        <div class="form-check mb-3">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="radioGroup"
+            id="ConfigRepetidor"
+          />
+          <label class="form-check-label" for="ConfigRepetidor"
+            >Configuração de repetidor</label
+          >
+        </div>
+        <!-- RADIO de análise e reposicionamento -->
+        <div class="form-check mb-3">
+          <input
+            class="from-check-input"
+            type="radio"
+            name="radioGroup"
+            id="AnaliseRepo"
+          />
+          <label class="form-check-label" for="AnaliseRepo"
+            >Análise e reposicionamento</label
+          >
+        </div>
+      </form>
+    </div>
 
+    <script></script>
+  </body>
 </html>
