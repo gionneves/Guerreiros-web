@@ -47,7 +47,7 @@
         <div class="row">
           <!-- O.S. de celular -->
           <div class="col-sm m-2">
-            <a href="">
+            <a href="/views/celular.html">
               <img
                 src="/images/os_celular.png"
                 alt="O.S. Celular"
@@ -59,7 +59,7 @@
           </div>
           <!-- O.S>. de Videogame -->
           <div class="col-sm m-2">
-            <a href="">
+            <a href="/views/videogame.html">
               <img
                 src="/images/os_videogame.png"
                 alt="O.S. Videogame"
@@ -71,7 +71,7 @@
           </div>
           <!-- O.S. de Tablet -->
           <div class="col-sm m-2">
-            <a href="">
+            <a href="/views/tablet.html">
               <img
                 src="/images/os_tablet.png"
                 alt="O.S. Tablet"
@@ -83,7 +83,7 @@
           </div>
           <!-- O.S. de Ar condicionado -->
           <div class="col-sm m-2">
-         <a href="">
+         <a href="/views/arcondicionado.html">
            <img
            src="/images/os_arCondicionado.png"
            alt="O.S. Ar condicionado"
@@ -93,8 +93,9 @@
           </a> 
             <h3 class="h3 text-white">Ar condicionado</h3>
           </div>
+          <!-- O.S. de Helpdesk -->
           <div class="col-sm m-2">
-            <a href="">
+            <a href="/views/helpdesk.html">
               <img
               src="/images/os_helpdesk.png"
               alt="O.S. Helpdesk"

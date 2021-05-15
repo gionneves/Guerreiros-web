@@ -10,8 +10,8 @@ $sql_cliente = 'INSERT INTO logs_cliente (id_cliente, nome_cliente, atividade, r
 */
 
 $cliente = $_SESSION['cliente_id'];
-$marca = $_POST['marca'];
-$modelo = $_POST['modelo'];
+$marca = $_POST['marcaCelular'];
+$modelo = $_POST['modeloCelular'];
 $checks = implode(", ", $_POST['check']);
 $emei = $_POST['emei'];
 $cliente_adicional = $_POST['Adicional'];

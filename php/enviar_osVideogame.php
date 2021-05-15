@@ -10,12 +10,12 @@ $sql_cliente = 'INSERT INTO logs_cliente (id_cliente, nome_cliente, atividade, r
 */
 
 $cliente = $_SESSION['cliente_id'];
-$marca = $_POST['marca'];
-$modelo = $_POST['modelo'];
+$marca = $_POST['marcaVideogame'];
+$modelo = $_POST['modeloVideogame'];
 $serial = $_POST['serial'];
 $acessorio = $_POST['acessorioVideogame'];
-$defeito_cliente = $_POST['defeito_cliente'];
-$cliente_adicional = $_POST['adicional_cliente'];
+$defeito_cliente = $_POST['defeito_clienteVideogame'];
+$cliente_adicional = $_POST['adicional_clienteVideogame'];
 $hora_retirada = $_POST['hora'];
 
 if (date('D', strtotime("+3 day")) == 'Sun') {
