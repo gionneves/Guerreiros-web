@@ -1,87 +1,142 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Importação do estilo Bootstrap 5 e código customizado Guerreiros -->
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/guerreiros.css" />
+    <title>Guerreiros-Multi</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Importação do estilo Bootstrap 5 e código customizado Guerreiros -->
-  <link rel="stylesheet" href="css/bootstrap.css" />
-  <link rel="stylesheet" href="css/guerreiros.css" />
-  <title>Guerreiros-Multi</title>
-</head>
-
-<body class="bg-light grade">
-  <!-- Modal que cria a tela de carregamento -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Guerreiros-Multi</h5>
-          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-        </div>
-        <div class="modal-body">
-          <div class="text-center">
-            <p>
-              <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-              Carregando...
-            </p>
+  <body class="bg-light grade">
+    <!-- Modal que cria a tela de carregamento -->
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">
+              Guerreiros-Multi
+            </h5>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+          </div>
+          <div class="modal-body">
+            <div class="text-center">
+              <p>
+                <span
+                  class="spinner-grow spinner-grow-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                Carregando...
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Container de fundo -->
-  <div class="container-fluid">
-    <!-- Imagem do logo -->
-    <div class="text-center m-3">
-      <img src="images/vetor_pequeno.png" alt="Guerreiros-Multi Logo" width="55%" height="55%" />
+    <!-- Container de fundo -->
+    <div class="container-fluid">
+      <!-- Imagem do logo -->
+      <div class="text-center m-3">
+        <img
+          src="images/vetor_pequeno.png"
+          alt="Guerreiros-Multi Logo"
+          width="55%"
+          height="55%"
+        />
+      </div>
+      <!-- Container que faz o fundo do FORM -->
+      <div
+        class="
+          container
+          mc-3
+          rounded
+          border border-1
+          shadow shadow-lg
+          bg-transparence
+        "
+      >
+        <br />
+        <!-- Início do FORM de login -->
+        <form action="php/Login.php" method="post" class="form text-light">
+          <!-- FORM email -->
+          <div class="mb-3">
+            <label for="email" class="form-label">Endereço de email</label>
+            <div class="input-group">
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                id="email"
+                aria-describedby="emailHelp"
+                required
+              />
+              <img
+                src="images/bootstrap-icons/mailbox2.svg"
+                class="input-group-text"
+              />
+            </div>
+            <div id="emailHelp" class="form-text">
+              Nós nunca compartilharemos o seu email com ninguém.
+            </div>
+          </div>
+          <!-- FORM senha -->
+          <div class="mb-3">
+            <label for="password" class="form-label">Senha</label>
+            <div class="input-group">
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                required
+              />
+              <img
+                src="images/bootstrap-icons/key-fill.svg"
+                class="input-group-text"
+              />
+            </div>
+          </div>
+          <!-- FORM botão de entrar -->
+          <input
+            type="submit"
+            class="btn btn-danger m-1"
+            value="Entrar"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+          />
+
+          <!-- FORM botão de cadastro -->
+          <button
+            class="float-end m-2 btn btn-outline-danger"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+          >
+            <a class="text-white text-decoration-none" href="views/signin.html"
+              >Cadastrar-se</a
+            >
+          </button>
+        </form>
+        <!-- Fim do FORM de login -->
+        <br />
+      </div>
     </div>
-    <!-- Container que faz o fundo do FORM -->
-    <div class="container mc-3 rounded border border-1 shadow shadow-lg bg-transparence">
-      <br />
-      <!-- Início do FORM de login -->
-      <form action="php/Login.php" method="post" class="form text-light">
-        <!-- FORM email -->
-        <div class="mb-3">
-          <label for="email" class="form-label">Endereço de email</label>
-          <div class="input-group">
-            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" required />
-            <img src="images/bootstrap-icons/mailbox2.svg" class="input-group-text" />
-          </div>
-          <div id="emailHelp" class="form-text">
-            Nós nunca compartilharemos o seu email com ninguém.
-          </div>
-        </div>
-        <!-- FORM senha -->
-        <div class="mb-3">
-          <label for="password" class="form-label">Senha</label>
-          <div class="input-group">
-            <input type="password" class="form-control" id="password" name="password" required />
-            <img src="images/bootstrap-icons/key-fill.svg" class="input-group-text" />
-          </div>
-        </div>
-        <!-- FORM botão de entrar -->
-        <input type="submit" class="btn btn-danger m-1" value="Entrar" data-bs-toggle="modal"
-          data-bs-target="#staticBackdrop" />
 
-        <!-- FORM botão de cadastro -->
-        <button class="float-end m-2 btn btn-outline-danger data-bs-toggle=" modal" data-bs-target="#staticBackdrop"">
-          <a class=" text-white text-decoration-none" href="views/signin.html">Cadastrar-se</a>
-        </button>
-      </form>
-      <!-- Fim do FORM de login -->
-      <br />
-    </div>
-  </div>
-
-  <footer>
-    <!-- Importação dos script do jQuery e Bootstrap 5 -->
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-  </footer>
-</body>
-
+    <footer>
+      <!-- Importação dos script do jQuery e Bootstrap 5 -->
+      <script src="js/jquery-3.6.0.min.js"></script>
+      <script src="js/bootstrap.js"></script>
+    </footer>
+  </body>
 </html>

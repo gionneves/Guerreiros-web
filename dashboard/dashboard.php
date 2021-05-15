@@ -13,6 +13,28 @@
   </head>
 
   <body class="bg-light grade">
+
+ <!-- Modal que cria a tela de carregamento -->
+ <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Guerreiros-Multi</h5>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+          <div class="text-center">
+            <p>
+              <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+              Carregando...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <br />
     <!-- Navegação entre Dashboard e "Minhas O.S." -->
     <nav>
@@ -23,9 +45,9 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="View_os.php"
-            >Minhas O.S.</a
-          >
+          <a class="nav-link" aria-current="page" href="View_os.php" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+            >Minhas O.S.</a>
         </li>
       </ul>
     </nav>
@@ -47,7 +69,8 @@
         <div class="row">
           <!-- O.S. de celular -->
           <div class="col-sm m-2">
-            <a href="/views/celular.html">
+            <a href="/views/celular.html" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop">
               <img
                 src="/images/os_celular.png"
                 alt="O.S. Celular"
@@ -58,7 +81,8 @@
             <h3 class="h3 text-white">Celular</h3>
           </div>
           <!-- O.S>. de Videogame -->
-          <div class="col-sm m-2">
+          <div class="col-sm m-2" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop">
             <a href="/views/videogame.html">
               <img
                 src="/images/os_videogame.png"
@@ -70,7 +94,8 @@
             <h3 class="h3 text-white">Videogame</h3>
           </div>
           <!-- O.S. de Tablet -->
-          <div class="col-sm m-2">
+          <div class="col-sm m-2" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop">
             <a href="/views/tablet.html">
               <img
                 src="/images/os_tablet.png"
@@ -82,7 +107,8 @@
             <h3 class="h3 text-white">Tablet</h3>
           </div>
           <!-- O.S. de Ar condicionado -->
-          <div class="col-sm m-2">
+          <div class="col-sm m-2" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop">
          <a href="/views/arcondicionado.html">
            <img
            src="/images/os_arCondicionado.png"
@@ -94,7 +120,8 @@
             <h3 class="h3 text-white">Ar condicionado</h3>
           </div>
           <!-- O.S. de Helpdesk -->
-          <div class="col-sm m-2">
+          <div class="col-sm m-2" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop">
             <a href="/views/helpdesk.html">
               <img
               src="/images/os_helpdesk.png"

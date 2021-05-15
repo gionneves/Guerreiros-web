@@ -87,10 +87,12 @@
           <input class="form-check-input m-1" type="checkbox" name="check[]" id="WiFi" value="WiFi" />
           <label class="form-check-label" for="WiFi">Wi-Fi</label>
         </div>
+
         <div class="form-check m-1 mb-2 col-md bg-transparence-light rounded rounded-2">
           <input class="form-check-input m-1" type="checkbox" name="check[]" id="Carcaca" value="Carcaça" />
           <label class="form-check-label" for="Carcaca">Carcaça</label>
         </div>
+
         <div class="form-check m-1 mb-2 col-md bg-transparence-light rounded rounded-2">
           <input class="form-check-input m-1" type="checkbox" name="check[]" id="Alto_falante" value="Alto_falante" />
           <label class="form-check-label" for="Alto_falante">Alto falante</label>
@@ -160,14 +162,15 @@
       </div>
   </div>
 
-  <div class="text-center m-3">
-    <input class="btn btn-primary btn-lg " type="submit" value="Enviar O.S.!" />
-  </div>
+    <div class="text-center m-3">
+    <input class="btn btn-primary btn-lg " type="submit" value="Enviar O.S.!" data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop"/>
+    </div>
   </form>
 
+  <script src="/js/bootstrap.js"></script>
   <script src="/css/jquery-ui/external/jquery/jquery.js"></script>
   <script src="/css/jquery-ui/jquery-ui.js"></script>
-
   <script>
     var marcas = [
       "Samsung",
