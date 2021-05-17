@@ -1,110 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="/css/bootstrap.css" />
-    <link rel="stylesheet" href="/css/guerreiros.css" />
-    <script src="/js/bootstrap.js"></script>
-    <script src="/js/jquery-3.6.0.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>O.S. Helpdesk</title>
-  </head>
 
-  <body class="grade">
-    <div class="container text-end m-2">
-      <a href="">para o seu negócio? -> </a>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="/css/bootstrap.css" />
+  <link rel="stylesheet" href="/css/guerreiros.css" />
+  <script src="/js/bootstrap.js"></script>
+  <script src="/js/jquery-3.6.0.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>O.S. Helpdesk</title>
+</head>
 
-    <div class="container text-center m-4">
-      <h2 class="h2">Helpdesk</h2>
-      <div class="text-decoration">Helpdesk para sua casa.</div>
-    </div>
+<body class="grade">
+  <div class="container text-end m-2">
+    <a href="">para o seu negócio? -> </a>
+  </div>
 
-    <div class="container bg-transparence text-light rounded rounded-2">
-      <!-- FORM início! -->
-      <form
-        class="row g-3 mb-3"
-        action="/php/helpdesk/helpdesk_pessoal.php"
-        method="POST"
-      >
+  <div class="container text-center m-4">
+    <h2 class="h2">Helpdesk</h2>
+    <div class="text-decoration">Helpdesk para sua casa.</div>
+  </div>
+
+  <div class="container bg-transparence text-light rounded rounded-2">
+    <!-- FORM início! -->
+    <form class="row g-3 mb-3" action="/php/helpdesk/helpdesk_pessoal.php" method="POST">
+      <div class="container m-3">
         <!-- RADIO de configuração de modem -->
         <div class="form-check mb-3">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="radioGroup"
-            id="ConfigModem"
-            value="Configuração de Modem"
-          />
-          <label class="form-check-label" for="ConfigModem"
-            >Configuração de modem.</label
-          >
+          <input class="form-check-input" type="radio" name="radioGroup" id="ConfigModem" value="Configuração de Modem"
+            required />
+          <label class="form-check-label" for="ConfigModem">Configuração de modem.</label>
         </div>
         <!-- RADIO de configuração de roteador -->
         <div class="form-check mb-3">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="radioGroup"
-            id="ConfigRoteador"
-            value="Configurar Roteador"
-          />
-          <label class="form-check-label" for="ConfigRoteador"
-            >Configuração de Roteador</label
-          >
+          <input class="form-check-input" type="radio" name="radioGroup" id="ConfigRoteador" value="Configurar Roteador"
+            required />
+          <label class="form-check-label" for="ConfigRoteador">Configuração de Roteador</label>
         </div>
         <!-- RADIO de configuração de repetidor -->
         <div class="form-check mb-3">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="radioGroup"
-            id="ConfigRepetidor"
-            value="Configuração de repetidor"
-          />
-          <label class="form-check-label" for="ConfigRepetidor"
-            >Configuração de repetidor</label
-          >
+          <input class="form-check-input" type="radio" name="radioGroup" id="ConfigRepetidor"
+            value="Configuração de repetidor" required />
+          <label class="form-check-label" for="ConfigRepetidor">Configuração de repetidor</label>
         </div>
         <!-- RADIO de análise e reposicionamento -->
         <div class="form-check mb-3">
-          <input
-            class="from-check-input"
-            type="radio"
-            name="radioGroup"
-            id="AnaliseRepo"
-            value="Analise e reposicionamento"
-          />
-          <label class="form-check-label" for="AnaliseRepo"
-            >Análise e reposicionamento</label
-          >
+          <input class="form-check-input" type="radio" name="radioGroup" id="AnaliseRepo"
+            value="Analise e reposicionamento" required />
+          <label class="form-check-label" for="AnaliseRepo">Análise e reposicionamento</label>
         </div>
         <!-- RADIO de Cabeamento -->
         <div class="form-check mb-3">
-          <input
-            class="from-check-input"
-            type="radio"
-            name="radioGroup"
-            id="Cabeamento"
-            value="Cabeamento"
-          />
+          <input class="form-check-input" type="radio" name="radioGroup" id="Cabeamento" value="Cabeamento" required />
           <label class="form-check-label" for="Cabeamento">Cabeamento</label>
         </div>
         <!-- RADIO de Configuração SmartHome -->
         <div class="form-check mb-3">
-          <input
-            class="from-check-input"
-            type="radio"
-            name="radioGroup"
-            id="ConfigSHome"
-            value="Configuração SmartHome"
-          />
+          <input class="form-check-input" type="radio" name="radioGroup" id="ConfigSHome" value="Configuração SmartHome"
+            required />
           <label class="form-check-label" for="ConfigSHome">Configuração de interface SmartHome<label>
         </div>
-      </form>
-    </div>
+      </div>
 
-    <script></script>
-  </body>
+      <!-- Textbox do horario que ele quer a retirada -->
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="hora">Hoario de retirada</label>
+        <input class="form-control" type="text" name="hora" id="hora" maxlength="5" required />
+      </div>
+
+      <!-- BTN de enviar O.S. -->
+      <div class="container text-center m-4">
+        <button class="btn btn-primary btn-lg" type="submit">Cadastrar-se</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const hora = document.querySelector("#hora");
+
+    hora.addEventListener("keyup", () => {
+      let value = hora.value
+        .replace(/[^0-9]/g, "")
+        .replace(/^([\d]{2})([\d]{2})?/, "$1:$2");
+
+      hora.value = value;
+    });
+  </script>
+</body>
+
 </html>
