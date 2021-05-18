@@ -75,6 +75,7 @@
                 echo '<th scope="row">'.$os_cel['id'].'</th>';
                 echo '<th>'.$os_cel['marca'].'</th>';
                 echo '<th>'.$os_cel['modelo'].'</th>';
+                echo '<th>'.$os_cel['estado'].'</th>';
                 echo '</tr>';
               } ?>
                 </tbody>

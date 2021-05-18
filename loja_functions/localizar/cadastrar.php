@@ -2,7 +2,7 @@
 
 <?php
 
-include "../php/conexao.php";
+include "conexao.php";
 
 $login = $_POST["login_db"];
 $senha = $_POST["senha_db"];
@@ -51,11 +51,11 @@ if ($stmt2->rowCount() > 0) {
 
     <button onclick="goBack()">Voltar</button>
 
-<script>
-function goBack() {
-  window.history.back();
-}
-</script>
+    <script>
+    function goBack() {
+        window.history.back();
+    }
+    </script>
 
 </head>
 

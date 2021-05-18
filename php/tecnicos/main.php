@@ -41,13 +41,81 @@
                             echo '<th>'.$os_celular['tecnico'].'</th>';
                             echo '<th>'.$os_celular['servico_realizado'].'</th>';
                             echo '<th>'.$os_celular['estado'].'</th>';
-                            echo '<th><a href="edit.php?edit='.$os_celular['id'].'" class="btn btn-success">Editar</a></th>';
+                            echo '<th> <button class="btn btn-success editbtn">Editar</button></th>';
                             echo '</tr>';
                         } ?>
                 </tbody>
             </table>
         </div>
     </div>
+
+
+    <!-- ----------- Modal -------------- -->
+    <div class="modal fade" id="editmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                    </div>
+                    <form action="edit.php" method="post">
+                        <div class="modal-body">
+
+                            <div class="form-group mb-2">
+                                <label for="OrdemServico">O.S.</label>
+                                <input type="text" class="form-control" name="os" id="os_update_id" disabled>
+                            </div>
+
+                            <div class="form-group mb-2">
+                                <label for="tecnico">Tecnico</label>
+                                <input type="text" class="form-control" name="tecnico" id="os_tecnico">
+                            </div>
+
+                            <div class="form-group mb-2">
+                                <label for="servico">Serviço realizado</label>
+                                <input type="text" class="form-control" name="servico" id="os_servico">
+                            </div>
+
+                            <div class="form-group mb-2">
+                                <label for="estado">Estado</label>
+                                <input type="text" class="form-control" name="estado" id="os_estado">
+                            </div>
+
+
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary"
+                            data-bs-dismiss="modal">Descartar</button>
+                        <button type="button" class="btn btn-success">Salvar mudanças</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FIM MODAL -->
+
+        <script>
+        $(document).ready(function() {
+            $('.editbtn').on('click', function() {
+                $('#editmodal').modal('show')
+
+                $tr = $(this).closest('tr')
+
+                var data = $tr.children('th').map(function() {
+                    return $(this).text()
+                }).get()
+
+                console.log(data)
+
+                $('#os_update_id').val(data[0])
+                $('#os_tecnico').val(data[5])
+                $('#os_servico').val(data[6])
+                $('#os_estado').val(data[7])
+            })
+        })
+        </script>
 </body>
 
 </html>
