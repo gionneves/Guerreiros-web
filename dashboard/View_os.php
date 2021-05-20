@@ -71,7 +71,7 @@
                     include ('../php/Estados_OS.php');
                     require "../php/Conexao.php";
                     $e_os = new Estados_OS();
-                    $sql = "SELECT * FROM os_phone WHERE cliente = '".$_SESSION['cliente_id']."'";
+                    $sql = "SELECT id, marca, modelo, estado FROM os_phone WHERE cliente = '".$_SESSION['cliente_id']."'";
                     foreach ($pdo->query($sql) as $os_cel) { 
                         echo '<tr>';
                         echo '<th scope="row">'.$os_cel['id'].'</th>';
@@ -102,7 +102,7 @@
                 </thead>
                 <tbody>
                     <?php
-              $sql = "SELECT * FROM os_videogame WHERE cliente = '".$_SESSION['cliente_id']."'";
+              $sql = "SELECT id, marca, modelo, estado FROM os_videogame WHERE cliente = '".$_SESSION['cliente_id']."'";
               foreach ($pdo->query($sql) as $os_videogame) { 
                 echo '<tr>';
                 echo '<th scope="row">'.$os_videogame['id'].'</th>';
@@ -133,7 +133,7 @@
                 </thead>
                 <tbody>
                     <?php
-              $sql = "SELECT * FROM os_tablet WHERE cliente = '".$_SESSION['cliente_id']."'";
+              $sql = "SELECT id, marca, modelo, estado FROM os_tablet WHERE cliente = '".$_SESSION['cliente_id']."'";
               foreach ($pdo->query($sql) as $os_tablet) { 
                 echo '<tr>';
                 echo '<th scope="row">'.$os_tablet['id'].'</th>';
@@ -164,7 +164,7 @@
                 </thead>
                 <tbody>
                     <?php
-              $sql = "SELECT * FROM os_helpdesk WHERE cliente = '".$_SESSION['cliente_id']."'";
+              $sql = "SELECT id, marca, modelo, estado FROM os_helpdesk WHERE cliente = '".$_SESSION['cliente_id']."'";
               foreach ($pdo->query($sql) as $os_helpdesk) { 
                 echo '<tr>';
                 echo '<th scope="row">'.$os_helpdesk['id'].'</th>';

@@ -15,7 +15,7 @@
 <body>
     <header class="m-3">
         <div class="container bg-transparence-light p-2 mc-3 rounded shadow">
-            <nav class="nav nav-pills nav-fill">
+            <nav class="nav nav-pills nav-fill" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 <a class="nav-link" href="index.php">Todas O.S.</a>
                 <a class="nav-link active" aria-current="page" href="#">O.S. disponíveis</a>
             </nav>
@@ -44,7 +44,7 @@
                         include ('../Conexao.php');
                         include ('../Estados_OS.php');
                         $e_os = new Estados_OS();
-                        $sql = "SELECT marca, modelo, EMEI, defeitos, tecnico, servico_realizado, estado FROM os_phone WHERE estado = 2";
+                        $sql = "SELECT id, marca, modelo, EMEI, defeitos, tecnico, servico_realizado, estado FROM os_phone WHERE estado = 2";
                         foreach ($pdo->query($sql) as $os_celular) { 
                             echo '<tr>';
                             echo '<th scope="row">'.$os_celular['id'].'</th>';
@@ -109,6 +109,30 @@
             </div>
         </div>
         <!-- FIM MODAL -->
+
+        <!-- ----------- Modal CARREGANDO -------------- -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">
+                            Guerreiros-Multi
+                        </h5>
+                        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <p>
+                                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                                Carregando...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FIM MODAL CARREGANDO -->
 
         <script>
         $(document).ready(function() {

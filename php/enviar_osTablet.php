@@ -23,7 +23,7 @@ if (date('D', strtotime("+3 day")) == 'Sun') {
     $data = date('d/m/Y', strtotime("+3 day"));
 }
 
-$sql = 'INSERT INTO os_tablet (cliente, marca, modelo, EMEI, defeitos, cliente_adicional, data_retirada, hora_retirada) VALUES (:CLIENTE, :MARCA, :MODELO, :EMEI, :DEFEITOS, :CLIENTE_ADICIONAL, :DATA_RETIRADA, :HORA_RETIRADA)';
+$sql = 'INSERT INTO ordem_servicos (tipo_os, cliente, marca, modelo, EMEI, defeitos, cliente_adicional, data_servico, hora_servico) VALUES ("Tablet", :CLIENTE, :MARCA, :MODELO, :EMEI, :DEFEITOS, :CLIENTE_ADICIONAL, :DATA_RETIRADA, :HORA_RETIRADA)';
 $stmt = $pdo->prepare($sql);
 
 $stmt->bindParam(':CLIENTE', $cliente);
