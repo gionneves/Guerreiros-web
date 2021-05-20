@@ -68,16 +68,18 @@
                 </thead>
                 <tbody>
                     <?php
-              require "../php/Conexao.php";
-              $sql = "SELECT * FROM os_phone WHERE cliente = '".$_SESSION['cliente_id']."'";
-              foreach ($pdo->query($sql) as $os_cel) { 
-                echo '<tr>';
-                echo '<th scope="row">'.$os_cel['id'].'</th>';
-                echo '<th>'.$os_cel['marca'].'</th>';
-                echo '<th>'.$os_cel['modelo'].'</th>';
-                echo '<th>'.$os_cel['estado'].'</th>';
-                echo '</tr>';
-              } ?>
+                    include ('../php/Estados_OS.php');
+                    require "../php/Conexao.php";
+                    $e_os = new Estados_OS();
+                    $sql = "SELECT * FROM os_phone WHERE cliente = '".$_SESSION['cliente_id']."'";
+                    foreach ($pdo->query($sql) as $os_cel) { 
+                        echo '<tr>';
+                        echo '<th scope="row">'.$os_cel['id'].'</th>';
+                        echo '<th>'.$os_cel['marca'].'</th>';
+                        echo '<th>'.$os_cel['modelo'].'</th>';
+                        echo '<th>'.$e_os->decode_estado($os_cel['estado']).'</th>';
+                        echo '</tr>';
+                    } ?>
                 </tbody>
             </table>
         </div>
@@ -106,6 +108,7 @@
                 echo '<th scope="row">'.$os_videogame['id'].'</th>';
                 echo '<th>'.$os_videogame['marca'].'</th>';
                 echo '<th>'.$os_videogame['modelo'].'</th>';
+                echo '<th>'.$e_os->decode_estado($os_videogame['estado']).'</th>';
                 echo '</tr>';
               } ?>
                 </tbody>
@@ -136,6 +139,7 @@
                 echo '<th scope="row">'.$os_tablet['id'].'</th>';
                 echo '<th>'.$os_tablet['marca'].'</th>';
                 echo '<th>'.$os_tablet['modelo'].'</th>';
+                echo '<th>'.$e_os->decode_estado($os_tablet['estado']).'</th>';
                 echo '</tr>';
               } ?>
                 </tbody>
@@ -166,6 +170,7 @@
                 echo '<th scope="row">'.$os_helpdesk['id'].'</th>';
                 echo '<th>'.$os_helpdesk['marca'].'</th>';
                 echo '<th>'.$os_helpdesk['modelo'].'</th>';
+                echo '<th>'.$e_os->decode_estado($os_helpdesk['estado']).'</th>';
                 echo '</tr>';
               } ?>
                 </tbody>

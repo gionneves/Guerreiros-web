@@ -109,24 +109,21 @@
             </div>
           </div>
           <!-- FORM botão de entrar -->
-          <input
-            type="submit"
-            class="btn btn-danger m-1"
-            value="Entrar"
-            data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop"
-          />
+          <div class="container-fluid input-group">
+            <div data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <input type="submit" class="btn btn-danger m-1" value="Entrar" />
+            </div>
 
-          <!-- FORM botão de cadastro -->
-          <button
-            class="float-end m-2 btn btn-outline-danger"
-            data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop"
-          >
-            <a class="text-white text-decoration-none" href="views/signin.html"
-              >Cadastrar-se</a
-            >
-          </button>
+            <!-- FORM botão de cadastro -->
+            <div data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <a
+                type="button"
+                href="views/signin.html"
+                class="float-end m-2 btn btn-outline-danger"
+                >Cadastrar-se
+              </a>
+            </div>
+          </div>
         </form>
         <!-- Fim do FORM de login -->
         <br />

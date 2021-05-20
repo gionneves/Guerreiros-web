@@ -13,8 +13,20 @@
 </head>
 
 <body>
+    <header class="m-3">
+        <div class="container bg-transparence-light p-2 mc-3 rounded shadow">
+            <nav class="nav nav-pills nav-fill">
+                <a class="nav-link" href="index.php">Todas O.S.</a>
+                <a class="nav-link active" aria-current="page" href="#">O.S. disponíveis</a>
+            </nav>
+        </div>
+    </header>
+
     <div class="os_celular">
         <div class="container">
+            <div class="text-center">
+                <h3>Celulares</h3>
+            </div>
             <table class="table table-striped table-hover table-border">
                 <thead>
                     <th scope="col">O.S.</th>
@@ -29,8 +41,10 @@
                 </thead>
                 <tbody>
                     <?php
-                        require "../Conexao.php";
-                        $sql = "SELECT * FROM os_phone";
+                        include ('../Conexao.php');
+                        include ('../Estados_OS.php');
+                        $e_os = new Estados_OS();
+                        $sql = "SELECT marca, modelo, EMEI, defeitos, tecnico, servico_realizado, estado FROM os_phone WHERE estado = 2";
                         foreach ($pdo->query($sql) as $os_celular) { 
                             echo '<tr>';
                             echo '<th scope="row">'.$os_celular['id'].'</th>';
@@ -40,9 +54,9 @@
                             echo '<th>'.$os_celular['defeitos'].'</th>';
                             echo '<th>'.$os_celular['tecnico'].'</th>';
                             echo '<th>'.$os_celular['servico_realizado'].'</th>';
-                            echo '<th>'.$os_celular['estado'].'</th>';
+                            echo '<th>'.$e_os->decode_estado($os_celular['estado']).'</th>';
                             echo '<th> <button class="btn btn-success editbtn">Editar</button></th>';
-                            echo '</tr>';
+                        echo '</tr>';
                         } ?>
                 </tbody>
             </table>
@@ -115,6 +129,29 @@
                 $('#os_estado').val(data[7])
             })
         })
+
+
+        /* ############################################################################# */
+
+
+
+        /* function loadXMLDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("os_celular_table").innerHTML =
+                        this.responseText;
+                }
+            };
+            xhttp.open("GET", "os_celular.php", true);
+            xhttp.send();
+        }
+
+        setInterval(function() {
+            loadXMLDoc();
+        }, 500);
+
+        window.onload = loadXMLDoc; */
         </script>
 </body>
 
