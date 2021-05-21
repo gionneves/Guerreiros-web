@@ -44,7 +44,7 @@
                         include ('../Conexao.php');
                         include ('../Estados_OS.php');
                         $e_os = new Estados_OS();
-                        $sql = "SELECT id, marca, modelo, EMEI, defeitos, tecnico, servico_realizado, estado FROM os_phone WHERE estado = 2";
+                        $sql = "SELECT id, marca, modelo, EMEI, defeitos, tecnico, servico_realizado, estado FROM ordem_servicos WHERE tipo_os = 'Celular' AND estado > 1 AND estado < 5";
                         foreach ($pdo->query($sql) as $os_celular) { 
                             echo '<tr>';
                             echo '<th scope="row">'.$os_celular['id'].'</th>';
@@ -79,32 +79,32 @@
 
                             <div class="form-group mb-2">
                                 <label for="OrdemServico">O.S.</label>
-                                <input type="text" class="form-control" name="os" id="os_update_id" disabled>
+                                <input type="text" class="form-control" name="os" id="os_update_id" disabled require>
                             </div>
 
                             <div class="form-group mb-2">
                                 <label for="tecnico">Tecnico</label>
-                                <input type="text" class="form-control" name="tecnico" id="os_tecnico">
+                                <input type="text" class="form-control" name="tecnico" id="os_tecnico" require>
                             </div>
 
                             <div class="form-group mb-2">
                                 <label for="servico">Serviço realizado</label>
-                                <input type="text" class="form-control" name="servico" id="os_servico">
+                                <input type="text" class="form-control" name="servico" id="os_servico" require>
                             </div>
 
                             <div class="form-group mb-2">
                                 <label for="estado">Estado</label>
-                                <input type="text" class="form-control" name="estado" id="os_estado">
+                                <input type="text" class="form-control" name="estado" id="os_estado" require>
                             </div>
 
 
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary"
+                                data-bs-dismiss="modal">Descartar</button>
+                            <button type="submit" class="btn btn-success">Salvar mudanças</button>
+                        </div>
                     </form>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary"
-                            data-bs-dismiss="modal">Descartar</button>
-                        <button type="button" class="btn btn-success">Salvar mudanças</button>
-                    </div>
                 </div>
             </div>
         </div>

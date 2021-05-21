@@ -16,7 +16,7 @@ $serial = $_POST['serial'];
 $acessorio = $_POST['acessorioVideogame'];
 $defeito_cliente = $_POST['defeito_clienteVideogame'];
 $cliente_adicional = $_POST['adicional_clienteVideogame'];
-$hora_retirada = $_POST['hora'];
+$hora_retirada = $_POST['hora']; 
 
 if (date('D', strtotime("+3 day")) == 'Sun') {
     $data = date('d/m/Y', strtotime("+4 day"));
@@ -24,7 +24,7 @@ if (date('D', strtotime("+3 day")) == 'Sun') {
     $data = date('d/m/Y', strtotime("+3 day"));
 }
 
-$sql = 'INSERT INTO ordem_servicos (tipo_os, cliente, marca, modelo, serial, acessorios, defeitos_cliente, adicional_cliente, data_retirada, hora_retirada )
+$sql = 'INSERT INTO ordem_servicos (tipo_os, cliente, marca, modelo, serial, acessorios, defeitos_cliente, adicional_cliente, data_servico, hora_servico )
 VALUES ("Videogame", :CLIENTE, :MARCA, :MODELO, :SERIAL, :ACESSORIO, :DEFEITOCLI, :ADICIONALCLI, :DATARETIRADA, :HORA);';
 
 $stmt = $pdo->prepare($sql);
@@ -40,7 +40,6 @@ $stmt->bindParam(':DATARETIRADA', $data);
 $stmt->bindParam(':HORA', $hora_retirada);
 
 if ($stmt->execute()) {
-    //$stmt = $pdo2->prepare($sql_cliente)->execute([$se_user, $se_nome, "Criação de O.S.", "Cliente criou O.S. de um videogame " + $marca]);
     header("Location: /dashboard/View_os.php");
 } else {
     echo "ERRO: e:01: Fail to connect!";

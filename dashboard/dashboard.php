@@ -86,20 +86,20 @@
                     </a>
                     <h3 class="h3 text-white">Tablet</h3>
                 </div>
-                <!-- O.S. de Ar condicionado -->
-                <div class="col-sm m-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <a href="/views/arcondicionado.html">
-                        <img src="/images/os_arCondicionado.png" alt="O.S. Ar condicionado" width="175em"
-                            height="105em" />
-                    </a>
-                    <h3 class="h3 text-white">Ar condicionado</h3>
-                </div>
                 <!-- O.S. de Helpdesk -->
                 <div class="col-sm m-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     <a href="/views/helpdesk.html">
                         <img src="/images/os_helpdesk.png" alt="O.S. Helpdesk" width="175em" height="105em" />
                     </a>
                     <h3 class="h3 text-white">Help-desk</h3>
+                </div>
+                <!-- O.S. de Ar condicionado -->
+                <div class="col-sm m-2">
+                    <a href="#">
+                        <img src="/images/os_arCondicionado_fehado.png" alt="O.S. Ar condicionado" width="175em"
+                            height="105em" />
+                    </a>
+                    <h3 class="h3 text-white">Ar condicionado</h3>
                 </div>
             </div>
         </div>

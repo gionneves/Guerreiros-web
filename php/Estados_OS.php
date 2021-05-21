@@ -1,7 +1,7 @@
 <?php
 
 class Estados_OS {
-    function decode_estado($var) {
+    public function decode_estado($var) {
         switch($var) {
             case 0:
                 return 'Orçamento';
@@ -16,10 +16,10 @@ class Estados_OS {
                 return 'Orçamento técnico';
                 break;
             case 4:
-                return 'Orçamento técnico (Sem conserto)';
+                return 'Sem conserto';
                 break;
             case 5:
-                return 'Orçamento técnico (Sem defeito)';
+                return 'Sem defeito';
                 break;
             case 6:
                 return 'Orçamento reprovado';
@@ -27,8 +27,81 @@ class Estados_OS {
             case 7:
                 return 'Orçamento aprovado';
                 break;
+            case 8: 
+                return 'Em conserto';
+                break;
+            case 9:
+                return 'Consertado';
+                break;
+            case 10:
+                return 'Trânsito loja';
+                break;
+            case 11:
+                return 'Aguardando retirada';
+                break;
+            case 12:
+                return 'Entregue';
+                break;
+            case 13:
+                return 'Devolvido';
+                break;
+            case 14:
+                return 'Deposito';
+                break;
             default:
-                echo 'Erro, estado de OS não reconhecido!';
+                echo 'Erro, estado dessa OS não é reconhecido!';
+        }
+    }
+
+    public function encode_estado($var) {
+        switch($var) {
+            case 'Orçamento':
+                return 0;
+                break;
+            case 'Trânsito assistencia':
+                return 1;
+                break;
+            case 'Recebido assistência':
+                return 2;
+                break;
+            case 'Orçamento técnico':
+                return 3;
+                break;
+            case 'Sem conserto':
+                return 4;
+                break;
+            case 'Sem defeito':
+                return 5;
+                break;
+            case 'Orçamento reprovado':
+                return 6;
+                break;
+            case 'Orçamento aprovado':
+                return 7;
+                break;
+            case 'Em conserto': 
+                return 8;
+                break;
+            case 'Consertado':
+                return 9;
+                break;
+            case 'Trânsito loja':
+                return 10;
+                break;
+            case 'Aguardando retirada':
+                return 11;
+                break;
+            case 'Entregue':
+                return 12;
+                break;
+            case 'Devolvido':
+                return 13;
+                break;
+            case 'Deposito':
+                return 14;
+                break;
+            default:
+                echo 'Erro, estado dessa OS não é reconhecido!';
         }
     }
 }
