@@ -44,7 +44,7 @@
                         include ('../Conexao.php');
                         include ('../Estados_OS.php');
                         $e_os = new Estados_OS();
-                        $sql = "SELECT id, marca, modelo, EMEI, defeitos, tecnico, servico_realizado, estado FROM ordem_servicos WHERE tipo_os = 'Celular' AND estado > 1 AND estado < 5";
+                        $sql = "SELECT id, marca, modelo, EMEI, defeitos, tecnico, servico_realizado, estado FROM ordem_servicos WHERE tipo_os = 'Celular' AND estado > 1 AND estado < 9";
                         foreach ($pdo->query($sql) as $os_celular) { 
                             echo '<tr>';
                             echo '<th scope="row">'.$os_celular['id'].'</th>';
@@ -94,7 +94,15 @@
 
                             <div class="form-group mb-2">
                                 <label for="estado">Estado</label>
-                                <input type="text" class="form-control" name="estado" id="os_estado" require>
+                                <div class="optionsTec">
+                                    <select name="estado" class="form-select" id="estado">
+                                        <?php
+                                        for ($i = 2; $i < 9; ++$i){
+                                            echo '<option value="'.$i.'">'.$e_os->decode_estado($i).'</option>';
+                                        } 
+                                    ?>
+                                    </select>
+                                </div>
                             </div>
 
 

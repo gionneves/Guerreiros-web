@@ -1,6 +1,7 @@
 <?php
-
+/*  Estados_OS, classe destinada para codificação e decodificação do estado das O.S. que está cadastrado no banco de dados */
 class Estados_OS {
+    /* @param $var serve para receber o estado que vem do banco de dados e traduzir para poder ler */
     public function decode_estado($var) {
         switch($var) {
             case 0:
@@ -52,7 +53,8 @@ class Estados_OS {
                 echo 'Erro, estado dessa OS não é reconhecido!';
         }
     }
-
+/*  @param $var serve para codificar o valor retornado pela função anterior (decode_estado)
+    para retornaro ao banco de dados */
     public function encode_estado($var) {
         switch($var) {
             case 'Orçamento':
