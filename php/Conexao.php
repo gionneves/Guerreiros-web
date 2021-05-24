@@ -4,7 +4,7 @@ session_start();
 
 $dsn = 'mysql:host=localhost;dbname=dbguerra;charset=utf8';
 $usuario = 'root';
-$senha = '6ybAmX2bCg688fUu';
+$senha = '';
 	
 global $pdo;
 

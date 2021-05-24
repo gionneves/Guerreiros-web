@@ -65,7 +65,7 @@
 
 
     <!-- ----------- Modal -------------- -->
-    <div class="modal fade" id="editmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <div class="modal fade shadow" id="editmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-dialog">
@@ -94,19 +94,20 @@
 
                             <div class="form-group mb-2">
                                 <label for="estado">Estado</label>
-                                <div class="optionsTec">
-                                    <select name="estado" class="form-select" id="estado">
-                                        <?php
+                                <div class="input-group">
+                                    <button class="btn btn-warning shadow">Avançar O.S.</button>
+                                    <div class="optionsTec">
+
+                                        <select name="estado" class="form-select" id="estado">
+                                            <?php
                                         for ($i = 2; $i < 9; ++$i){
                                             echo '<option value="'.$i.'">'.$e_os->decode_estado($i).'</option>';
                                         } 
-                                    ?>
-                                    </select>
-                                    <span class="form-input-text"></span>
+                                        ?>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-
-
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary"

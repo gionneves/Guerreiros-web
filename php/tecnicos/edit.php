@@ -13,7 +13,7 @@
 
 /*     $sql = "UPDATE painel SET Login = '$novo_login' WHERE painel.ID = '$id_login'"; */
 
-            $sql = 'UPDATE ordem_servicos SET tecnico = '. $_SESSION .', servico = $servico ';
+            $sql = 'UPDATE ordem_servicos SET tecnico = '. $_SESSION .', servico = '.$servico.';';
 
     } else {
         echo '<script>alert("Erro! Algo deu errado!")</script>';

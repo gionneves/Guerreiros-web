@@ -31,6 +31,8 @@ if (isset($_POST["email"]) && !empty($_POST["email"]) && isset($_POST["password"
          */
         if ($_SESSION['cliente_estado'] == 'GG') {
             header("Location: /dashboard/loja_dashboard.html"); // Leva para o Dashboard da loja.
+        } else if ($_SESSION['cliente_estado'] == 'TT') {
+            header("Location: tecnicos/index.php");
         } else {
             header("Location: /dashboard/dashboard.php"); // Leva para o Dashboard do usuário.
         }
