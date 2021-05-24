@@ -102,6 +102,7 @@
                                         } 
                                     ?>
                                     </select>
+                                    <span class="form-input-text"></span>
                                 </div>
                             </div>
 
