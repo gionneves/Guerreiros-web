@@ -22,6 +22,23 @@
         </div>
     </header>
 
+    <!-- Alerta Confirmação -->
+
+    <div class="container">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <script>
+        var alertList = document.querySelectorAll('.alert')
+        alertList.forEach(function(alert) {
+            new bootstrap.Alert(alert)
+        })
+        </script>
+    </div>
+
+
     <div class="os_celular">
         <div class="container">
             <div class="text-center">
@@ -44,7 +61,7 @@
                         include ('../Conexao.php');
                         include ('../Estados_OS.php');
                         $e_os = new Estados_OS();
-                        $sql = "SELECT id, marca, modelo, EMEI, defeitos, tecnico, servico_realizado, estado FROM ordem_servicos WHERE tipo_os = 'Celular' AND estado > 1 AND estado < 9";
+                        $sql = "SELECT id, marca, modelo, EMEI, defeitos, tecnico, servico_realizado, estado FROM ordem_servicos WHERE tipo_os = 'Celular' AND estado > 1 AND estado < 9 AND tecnico = ''";
                         foreach ($pdo->query($sql) as $os_celular) { 
                             echo '<tr>';
                             echo '<th scope="row">'.$os_celular['id'].'</th>';
@@ -63,6 +80,43 @@
         </div>
     </div>
 
+    <div class="os_tablet">
+        <div class="container">
+            <div class="text-center">
+                <h3>Tablet</h3>
+            </div>
+            <table class="table table-striped table-hover table-border">
+                <thead>
+                    <th scope="col">O.S.</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">EMEI</th>
+                    <th scope="col">Defeitos</th>
+                    <th scope="col">Tecnico</th>
+                    <th scope="col">Serviço</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Ações</th>
+                </thead>
+                <tbody>
+                    <?php
+                        $sql = "SELECT id, marca, modelo, EMEI, defeitos, tecnico, servico_realizado, estado FROM ordem_servicos WHERE tipo_os = 'Tablet' AND estado > 1 AND estado < 9 AND tecnico = ''";
+                        foreach ($pdo->query($sql) as $os_tablet) { 
+                            echo '<tr>';
+                            echo '<th scope="row">'.$os_tablet['id'].'</th>';
+                            echo '<th>'.$os_tablet['marca'].'</th>';
+                            echo '<th>'.$os_tablet['modelo'].'</th>';
+                            echo '<th>'.$os_tablet['EMEI'].'</th>';
+                            echo '<th>'.$os_tablet['defeitos'].'</th>';
+                            echo '<th>'.$os_tablet['tecnico'].'</th>';
+                            echo '<th>'.$os_tablet['servico_realizado'].'</th>';
+                            echo '<th>'.$e_os->decode_estado($os_tablet['estado']).'</th>';
+                            echo '<th> <button class="btn btn-success editbtn">Editar</button></th>';
+                        echo '</tr>';
+                        } ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
     <!-- ----------- Modal -------------- -->
     <div class="modal fade shadow" id="editmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -84,7 +138,9 @@
 
                             <div class="form-group mb-2">
                                 <label for="tecnico">Tecnico</label>
-                                <input type="text" class="form-control" name="tecnico" id="os_tecnico" require>
+                                <?php
+                                    echo '<input type="text" class="form-control" value="'.$_SESSION["cliente_nome"].'" name="tecnico" id="os_tecnico" require>'
+                                ?>
                             </div>
 
                             <div class="form-group mb-2">
@@ -94,24 +150,21 @@
 
                             <div class="form-group mb-2">
                                 <label for="estado">Estado</label>
-                                <div class="input-group">
-                                    <button class="btn btn-warning shadow">Avançar O.S.</button>
-                                    <div class="optionsTec">
-
-                                        <select name="estado" class="form-select" id="estado">
-                                            <?php
+                                <div class="optionsTec">
+                                    <select name="estado" class="form-select" id="estado" require>
+                                        <?php
                                         for ($i = 2; $i < 9; ++$i){
                                             echo '<option value="'.$i.'">'.$e_os->decode_estado($i).'</option>';
                                         } 
                                         ?>
-                                        </select>
-                                    </div>
+                                    </select>,
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary"
                                 data-bs-dismiss="modal">Descartar</button>
+                            <button type="button" class="btn btn-warning shadow">Avançar O.S.</button>
                             <button type="submit" class="btn btn-success">Salvar mudanças</button>
                         </div>
                     </form>
@@ -158,7 +211,7 @@
                 console.log(data)
 
                 $('#os_update_id').val(data[0])
-                $('#os_tecnico').val(data[5])
+                /*$('#os_tecnico').val(data[5]) */
                 $('#os_servico').val(data[6])
                 $('#os_estado').val(data[7])
             })
