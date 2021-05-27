@@ -23,13 +23,12 @@ if (!empty($_POST["id_login"]) && !empty($_POST["nova_senha"])) {
     $stmt = $pdo->prepare($sql);
     
     if ($stmt->execute()) {
-        echo '<script>alert("Usuário atualizado com o SUCESSO!")</script>';
+        setcookie("alterado", "sucesso", time()+15);
     } else {
-        echo '<script>alert("ERRO! Algo deu errado! Usuário não foi alterado.")</script>';
+        setcookie("alterado", "falha", time()+15);
     }   
-    header("location:cl.html");
+     header("location:cl.php");
 } else {
-    echo "Error";
-    sleep(5);
-    header("location:cl.html");
+    setcookie("alterado", "falha", time()+15);
+    header("location:cl.php");
 }

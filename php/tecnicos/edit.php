@@ -1,26 +1,26 @@
 <?php
     require '../Conexao.php';
-    /* include ('../Estados_OS.php'); */
 
-    if (!empty($_POST['tecnico']) && !empty($_POST['servico']) && !empty($_POST['estado'])) {
+    if (!empty($_POST['os']) && !empty($_POST['tecnico']) && !empty($_POST['servico']) && !empty($_POST['estado'])) {
         
         $os = $_POST['os'];
         $tecnico = $_POST['tecnico'];
         $servico = $_POST['servico'];
         $estado = $_POST['estado'];
 
-/*     $sql = "UPDATE painel SET Login = '$novo_login' WHERE painel.ID = '$id_login'"; */
-
-        $sql = "UPDATE ordem_servicos SET tecnico = '$tecnico', servico = '$servico', estado = '$estado' WHERE ordem_servicos.ID = '$os';";
+        $sql = "UPDATE ordem_servicos SET tecnico = '$tecnico', servico_realizado = '$servico', estado = '$estado' WHERE ordem_servicos.id = '$os'";
         $stmt = $pdo->prepare($sql);
 
         if ($stmt->execute()) {
-            header("Location: /Disponivel_OS.php");
+            setcookie("alterado", "sucesso", time()+15);
+            echo "<script>history.back();</script>";
         } else {
-            
+            setcookie("alterado", "falha", time()+15);
+            echo "<script>history.back();</script>";
         }
 
     } else {
-        echo '<script>alert("Erro! Algo deu errado!")</script>';
+        setcookie("alterado", "falha", time()+15);
+        echo "<script>history.back();</script>";
     }
 ?>
