@@ -1,3 +1,13 @@
+<?php
+/**
+ * PHP version = 7.4
+ *
+ * @author: Giovanni Neves Sadauscas
+ *
+ * @version: 1.0
+ */
+
+?>
 <div class="os_celular">
     <div class="container">
         <table class="table table-striped table-hover table-border">
@@ -14,14 +24,6 @@
             </thead>
             <tbody>
                 <?php
-                /**
-                 * PHP version = 7.4
-                 *
-                 * @author: Giovanni Neves Sadauscas
-                 *
-                 * @version: 1.0
-                 */
-                
                 require '../Conexao.php';
                 require '../Estados_OS.php';
                 $e_os = new Estados_OS();

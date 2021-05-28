@@ -1,26 +1,30 @@
 <?php
-    require '../Conexao.php';
+/**
+ * PHP version = 7.4
+ *
+ * @author: Giovanni Neves Sadauscas
+ *
+ * @version: 1.0
+ */
+require '../Conexao.php';
 
-    if (!empty($_POST['os']) && !empty($_POST['tecnico']) && !empty($_POST['servico']) && !empty($_POST['estado'])) {
-        
-        $os = $_POST['os'];
-        $tecnico = $_POST['tecnico'];
-        $servico = $_POST['servico'];
-        $estado = $_POST['estado'];
+if (!empty($_POST['os']) && !empty($_POST['tecnico']) && !empty($_POST['servico']) && !empty($_POST['estado'])) {
+    $os = $_POST['os'];
+    $tecnico = $_POST['tecnico'];
+    $servico = $_POST['servico'];
+    $estado = $_POST['estado'];
 
-        $sql = "UPDATE ordem_servicos SET tecnico = '$tecnico', servico_realizado = '$servico', estado = '$estado' WHERE ordem_servicos.id = '$os'";
-        $stmt = $pdo->prepare($sql);
+    $sql = "UPDATE ordem_servicos SET tecnico = '$tecnico', servico_realizado = '$servico', estado = '$estado' WHERE ordem_servicos.id = '$os'";
+    $stmt = $pdo->prepare($sql);
 
-        if ($stmt->execute()) {
-            setcookie("alterado", "sucesso", time()+15);
-            echo "<script>history.back();</script>";
-        } else {
-            setcookie("alterado", "falha", time()+15);
-            echo "<script>history.back();</script>";
-        }
-
+    if ($stmt->execute()) {
+        setcookie("alterado", "sucesso", time()+15);
+        echo "<script>history.back();</script>";
     } else {
         setcookie("alterado", "falha", time()+15);
         echo "<script>history.back();</script>";
     }
-?>
+} else {
+    setcookie("alterado", "falha", time()+15);
+    echo "<script>history.back();</script>";
+}

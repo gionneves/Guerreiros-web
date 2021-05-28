@@ -26,7 +26,7 @@
     <header class="m-3">
         <div class="container bg-transparence-light p-2 mc-3 rounded shadow">
             <nav class="nav nav-pills nav-fill" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                <a class="nav-link" href="index.php">Todas O.S.</a>
+                <a class="nav-link" href="index.html">Todas O.S.</a>
                 <a class="nav-link active" aria-current="page" href="#">O.S. disponíveis</a>
             </nav>
         </div>
@@ -95,8 +95,11 @@
                 </table>
             </div>
         </div>
-    </div> <?php } else {
-                        } ?>
+    </div> <?php } else { ?>
+    <div class="text-center">
+        <h4 class="text-danger">Você não possuiu nenhuma O.S.</h4>
+    </div>
+    <?php } ?>
 
     <div class="container">
         <div class="os_celular">
@@ -272,7 +275,6 @@
                 console.log(data)
 
                 $('#os_update_id').val(data[0])
-                /*$('#os_tecnico').val(data[5]) */
                 $('#os_servico').val(data[6])
                 $('#os_estado').val(data[7])
             })
