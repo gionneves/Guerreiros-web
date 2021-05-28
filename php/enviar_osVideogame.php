@@ -1,13 +1,17 @@
 <?php
+/**
+ * Faz a adição de O.S. de Videoggame no banco de dados
+ *
+ * PHP version 7
+ *
+ * @category Criação_OS
+ * @package  O.S.
+ * @author   Giovanni Neves Sadauscas <gionneves@gmail.com>
+ * @license  Guerreiros games
+ * @link     http//localhost/
+ */
 
 require 'conexao.php';
-//require "conexaolog.php";
-
-/*
-$se_user = $_SESSION['cliente_id'];
-$se_nome = $_SESSION['cliente_nome'];
-$sql_cliente = 'INSERT INTO logs_cliente (id_cliente, nome_cliente, atividade, resenha) VALUES (?, ?, ?, ?);';
-*/
 
 $cliente = $_SESSION['cliente_id'];
 $marca = $_POST['marcaVideogame'];
@@ -16,7 +20,7 @@ $serial = $_POST['serial'];
 $acessorio = $_POST['acessorioVideogame'];
 $defeito_cliente = $_POST['defeito_clienteVideogame'];
 $cliente_adicional = $_POST['adicional_clienteVideogame'];
-$hora_retirada = $_POST['hora']; 
+$hora_retirada = $_POST['hora'];
 
 if (date('D', strtotime("+3 day")) == 'Sun') {
     $data = date('d/m/Y', strtotime("+4 day"));

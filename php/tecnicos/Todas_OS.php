@@ -1,11 +1,17 @@
 <?php
 /**
- * PHP version = 7.4
+ * Todas_OS é para renderizar todas as ordem de serviços
+ * cadastradas no banco de dados
  *
- * @author: Giovanni Neves Sadauscas
+ * PHP version 7
  *
- * @version: 1.0
+ * @category Tecnicos
+ * @package  Tecnicos
+ * @author   Giovanni Neves Sadauscas <gionneves@gmail.com>
+ * @license  Guerreiros games
+ * @link     http//localhost/
  */
+
 
 ?>
 <div class="os_celular">

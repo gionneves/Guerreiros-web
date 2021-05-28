@@ -1,10 +1,15 @@
 <?php
 /**
- * PHP version = 7.4
+ * Update o banco de dados na parte tecnica em relação ao modal
+ * que é aberto em {Disponivel_OS.php}
  *
- * @author: Giovanni Neves Sadauscas
+ * PHP version 7
  *
- * @version: 1.0
+ * @category Tecnicos
+ * @package  Tecnicos
+ * @author   Giovanni Neves Sadauscas <gionneves@gmail.com>
+ * @license  Guerreiros games
+ * @link     http//localhost/
  */
 require '../Conexao.php';
 

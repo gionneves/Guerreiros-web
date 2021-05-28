@@ -1,11 +1,17 @@
 <?php
-    /**
-     * PHP version = 7.4
-     *
-     * @author: Giovanni Neves Sadauscas
-     *
-     * @version: 1.0
-     */
+/**
+ * Mostra todas os O.S. disponivel para o tecnico que está na sessão.
+ * Nisso cada tecnico vendo somente as O.S. que eles tem e quais eles podem
+ * cadastrar como se fosse eles
+ *
+ * PHP version 7
+ *
+ * @category Tecnicos
+ * @package  Tecnicos
+ * @author   Giovanni Neves Sadauscas <gionneves@gmail.com>
+ * @license  Guerreiros games
+ * @link     http//localhost/
+ */
 
 ?>
 <!DOCTYPE html>
@@ -97,7 +103,7 @@
         </div>
     </div> <?php } else { ?>
     <div class="text-center">
-        <h4 class="text-danger">Você não possuiu nenhuma O.S.</h4>
+        <h4 class="text-black-50">Você não possuiu nenhuma O.S.</h4>
     </div>
     <?php } ?>
 

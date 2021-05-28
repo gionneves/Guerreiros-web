@@ -15,23 +15,24 @@ if (isset($_POST["email"]) && !empty($_POST["email"]) && isset($_POST["password"
     $pass = addslashes($_POST["password"]);
 
     /**
-     * Aqui é passado o parametro da classe usuário na função de login e se for verdadeiro
-     *  ele vai para a outra verificação que se é algum login da loja, pois será enviado 
-     * para um dashboard diferente do usuário final.
+     * Aqui é passado o parametro da classe usuário na função de login e se for
+     * verdadeiro ele vai para a outra verificação que se é algum login da loja,
+     * pois será enviado para um dashboard diferente do usuário final.
      */
     if ($u->verificaLogin($email, $pass) == true) {
 
         /**
-         * Aqui é o verificador da loja, e como foi falado no comentário do "Usuario.php" aqui
-         * a gente verifica o estado dentro do banco de dados e onde está cadastrado para ter
-         * acesso ao dashboard da loja.
-         * 
-         * Aqui para ter acesso ao Dashboard da loja é necessario que no banco de dados na parte
-         * de estado esteja escrito "GG", caso estiver, de automático já é cadastrado como login de loja.
+         * Aqui é o verificador da loja, e como foi falado no comentário do
+         * "Usuario.php" aqui a gente verifica o estado dentro do banco de dados e
+         * onde está cadastrado para ter acesso ao dashboard da loja.
+         *
+         * Aqui para ter acesso ao Dashboard da loja é necessario que no banco de
+         * dados na parte de estado esteja escrito "GG", caso estiver, de automático
+         * já é cadastrado como login de loja.
          */
         if ($_SESSION['cliente_estado'] == 'GG') {
             header("Location: /dashboard/loja_dashboard.html"); // Leva para o Dashboard da loja.
-        } else if ($_SESSION['cliente_estado'] == 'TT') {
+        } elseif ($_SESSION['cliente_estado'] == 'TT') {
             header("Location: tecnicos/index.php");
         } else {
             header("Location: /dashboard/dashboard.php"); // Leva para o Dashboard do usuário.
