@@ -10,23 +10,51 @@
   <body>
     <header class="m-3">
       <div class="container bg-transparence-light p-2 mc-3 rounded shadow">
-        <nav
-          class="nav nav-pills nav-fill"
-          data-bs-toggle="modal"
-          data-bs-target="#staticBackdrop"
-        >
+        <nav class="nav nav-pills nav-fill" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
           <a class="nav-link" href="index.html">Todos serviços</a>
-          <a class="nav-link active" aria-current="page" href="#"
-            >Criar serviço</a
-          >
+          <a class="nav-link active" aria-current="page" href="#">Criar serviço</a>
           <a class="nav-link" href="ViewServices.html">Visualizar serviços</a>
         </nav>
       </div>
     </header>
 
-    <div class="container"></div>
+    <div class="container">
+      <div class="text-center">
+        <h3>Criação de serviços</h3>
+        <h6 class="text-black-50">Cria serviços para serem colocados nas ordens de serviços</h6>
+      </div>
+      <form action="../Create.php" method="post">
+        <div class="mb-3">
+          <label class="form-label" for="tipo_servico">Tipo do serviço</label>
+          <input class="form-control" type="text" name="tipo_servico" id="tipo_servico" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="tipo_servico">Categoria</label>
+          <input class="form-control" type="text" name="categoria" id="categoria" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="tipo_servico">Servico</label>
+          <input class="form-control" type="text" name="servico" id="servico" />
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">Custo R$</span>
+          <input type="number" class="form-control" id="custo" name="custo" />
+          <span class="input-group-text">Valor R$</span>
+          <input type="number" class="form-control" id="valor" name="valor" />
+          <span class="input-group-text">Lucro R$</span>
+          <input type="number" class="form-control" id="lucro" name="lucro" />
+        </div>
+      </form>
+    </div>
 
     <script src="/js/bootstrap.js"></script>
     <script src="/js/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#valor").keyup(function () {
+          $("#lucro").text($("#valor").val() - $("#custo").val());
+        });
+      });
+    </script>
   </body>
 </html>
