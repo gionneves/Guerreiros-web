@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/guerreiros.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+      integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+      crossorigin="anonymous"
+    />
     <title>Serviços Guerreiros-Multi</title>
   </head>
   <body>
@@ -18,41 +25,95 @@
       </div>
     </header>
 
-    <div class="container">
+    <div class="container bg-transparence-light rounded">
       <div class="text-center">
         <h3>Criação de serviços</h3>
         <h6 class="text-black-50">Cria serviços para serem colocados nas ordens de serviços</h6>
       </div>
       <form action="../Create.php" method="post">
-        <div class="mb-3">
-          <label class="form-label" for="tipo_servico">Tipo do serviço</label>
-          <input class="form-control" type="text" name="tipo_servico" id="tipo_servico" />
-        </div>
-        <div class="mb-3">
-          <label class="form-label" for="tipo_servico">Categoria</label>
-          <input class="form-control" type="text" name="categoria" id="categoria" />
-        </div>
-        <div class="mb-3">
-          <label class="form-label" for="tipo_servico">Servico</label>
-          <input class="form-control" type="text" name="servico" id="servico" />
+        <div class="input-group mb-3">
+          <span class="input-group-text" for="tipo_servico">Tipo do serviço</span>
+          <input class="form-control" type="text" name="tipo_servico" id="tipo_servico" required />
         </div>
         <div class="input-group mb-3">
-          <span class="input-group-text">Custo R$</span>
-          <input type="number" class="form-control" id="custo" name="custo" />
-          <span class="input-group-text">Valor R$</span>
-          <input type="number" class="form-control" id="valor" name="valor" />
-          <span class="input-group-text">Lucro R$</span>
-          <input type="number" class="form-control" id="lucro" name="lucro" />
+          <span class="input-group-text" for="tipo_servico">Categoria</span>
+          <input class="form-control" type="text" list="servicos_datalist" name="categoria" id="categoria" required />
         </div>
+        <div id="render"></div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" for="tipo_servico">Servico</span>
+          <input class="form-control" type="text" name="servico" id="servico" required />
+        </div>
+        <div class="text-black-50 mb-3">O "Custo" e o "Lucro" são opcionais!</div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">Custo R$</span>
+          <input type="number" class="num form-control" id="custo" name="custo" value="0" />
+          <span class="input-group-text">Valor R$</span>
+          <input type="number" class="num form-control" id="valor" name="valor" value="0" required />
+          <span class="input-group-text">Lucro R$</span>
+          <input type="number" class="form-control text-warning" id="lucro" name="lucro" value="0" />
+        </div>
+        <div class="input-group mb-3 w-50">
+          <span class="input-group-text">Coloque a %</span>
+          <input class="form-control" type="number" max="200" id="porcent" value="30" />
+          <button class="btn btn-primary rounded" id="calcPor" type="button">
+            <i class="fa fa-calculator" aria-hidden="true"></i> Calcular
+          </button>
+          <i
+            class="m-2 fa fa-info fa-align-center"
+            title="Calculadora de porcentagem, para definir o 'Valor'"
+            aria-hidden="true"
+          ></i>
+        </div>
+        <div class="mb-3"></div>
       </form>
     </div>
+
+    <datalist id="servicos_datalist">
+      <option value="Celular"></option>
+      <option value="Tablet"></option>
+      <option value="Videogames"></option>
+      <option value=""></option>
+    </datalist>
 
     <script src="/js/bootstrap.js"></script>
     <script src="/js/jquery-3.6.0.min.js"></script>
     <script>
       $(document).ready(function () {
-        $("#valor").keyup(function () {
-          $("#lucro").text($("#valor").val() - $("#custo").val());
+        $("#categoria").blur(function () {
+          if ($(this).val().toLowerCase() == "celular") {
+            $("#render").append(
+              '<div id="tutorial" class="input-group mb-3"> <span class="input-group-text">Marca</span><input type="text" class="form-control" list="marcas_datalist" /><span class="input-group-text">Modelo</span><input type="text" class="form-control" /></div><datalist id="marcas_datalist"><option value="Apple"></option><option value="Samsung"></option><option value="Motorola"></option><option value="Xiaomi"></option><option value="Nokia"></option><option value="Sony"></option><option value=""></option><option value=""></option><option value=""></option></datalist>'
+            );
+          } else if ($(this).val().toLowerCase() == "tablet") {
+          } else if ($(this).val().toLowerCase() == "videogame") {
+          } else {
+            $("#tutorial").remove();
+          }
+        });
+
+        // -------------------------------------------
+
+        $(".num").blur(function () {
+          let x = $("#valor").val();
+          let y = $("#custo").val();
+          var z = x - y;
+          if (z < 0) {
+            $("#lucro").val(x - y);
+            $("#lucro").removeClass("text-success text-warning").addClass("text-danger");
+          } else if (z > 0) {
+            $("#lucro").val(x - y);
+            $("#lucro").removeClass("text-danger text-warning").addClass("text-success");
+          } else {
+            $("#lucro").val(x - y);
+            $("#lucro").removeClass("text-danger text-success").addClass("text-warning");
+          }
+        });
+        $("#calcPor").click(function () {
+          var por = $("#porcent").val() / 100;
+          var cust = $("#custo").val();
+          var total = por * cust + parseInt(cust);
+          $("#valor").val(total);
         });
       });
     </script>
