@@ -1,6 +1,16 @@
 <?php
+/**
+ * Mostrar todos os serviços cadastrados
+ * 
+ * PHP version 7
+ * 
+ * @category Serviços
+ * @package  Serviços
+ * @author   Giovanni Neves Sadauscas <gionneves@gmail.com>
+ * @license  Guerreiros games
+ * @link     http//localhost/
+ */
 
-$tipo = $_POST["tipo_servico"];
 $categoria = $_POST["categoria"];
 $servico = $_POST["servico"];
 $custo = $_POST["custo"];

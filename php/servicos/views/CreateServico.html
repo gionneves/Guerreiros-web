@@ -32,10 +32,6 @@
       </div>
       <form action="../Create.php" method="post" autocomplete="off">
         <div class="input-group mb-3">
-          <span class="input-group-text" for="tipo_servico">Tipo do serviço</span>
-          <input class="form-control" type="text" name="tipo_servico" id="tipo_servico" required />
-        </div>
-        <div class="input-group mb-3">
           <span class="input-group-text" for="tipo_servico">Categoria</span>
           <input class="form-control" type="text" list="servicos_datalist" name="categoria" id="categoria" required />
         </div>
@@ -44,7 +40,7 @@
           <span class="input-group-text" for="tipo_servico">Servico</span>
           <input class="form-control" type="text" name="servico" id="servico" required />
         </div>
-        <div class="text-black-50 mb-3">O "Custo" e o "Lucro" são opcionais!</div>
+        <div class="text-black-50"><small>O "Custo" e o "Lucro" são opcionais!</small></div>
         <div class="input-group mb-3">
           <span class="input-group-text">Custo R$</span>
           <input type="number" class="num form-control" id="custo" name="custo" value="0" />
@@ -65,7 +61,34 @@
             aria-hidden="true"
           ></i>
         </div>
-        <div class="mb-3"></div>
+        <div class="input-group mb-3 w-50">
+          <span class="input-group-text">Tempo estimado</span>
+          <input type="number" name="dias" id="dias" class="form-control" max="365" />
+          <div class="text-black-50">
+            <p class="m-2"><small>Em dias</small></p>
+          </div>
+          <div class="mt-3 input-group">
+            <span class="input-group-text">Garantia</span>
+            <div class="form-check">
+              <label class="form-check-label m-2 me-4">
+                <input type="radio" class="form-check-input" name="garantia" id="gnao" value="Não" checked />
+                Não
+              </label>
+              <label class="form-check-label m-2">
+                <input type="radio" class="form-check-input" name="garantia" id="gsim" value="Sim" />
+                Sim
+              </label>
+            </div>
+            <input
+              type="number"
+              placeholder="Dias de garantia"
+              name="gdias"
+              id="gdias"
+              class="form-control w-25"
+              disabled
+            />
+          </div>
+        </div>
       </form>
     </div>
 
@@ -79,7 +102,22 @@
     <script src="/js/bootstrap.js"></script>
     <script src="/js/jquery-3.6.0.min.js"></script>
     <script>
+      $.ajax({});
+
       $(document).ready(function () {
+        $("#gsim").click(function () {
+          $("#gdias").prop("disabled", false);
+        });
+        $("#gnao").click(function () {
+          $("#gdias").prop("disabled", true);
+        });
+
+        $("#dias").blur(function () {
+          if (parseInt($(this).val()) > 365) {
+            $(this).val(365);
+          }
+        });
+
         $("#categoria").blur(function () {
           if ($(this).val().toLowerCase() == "celular") {
             if ($("#celular").length == 0) {
@@ -100,7 +138,7 @@
           } else if ($(this).val().toLowerCase() == "videogames") {
             if ($("#videogames").length == 0) {
               $("#render").append(
-                '<div id="videogame" class="input-group mb-3"><span class="input-group-text">Marca</span><input type="text" class="form-control" list="marcas_datalist" name="marca" id="marca_video" required /><span class="input-group-text">Modelo</span><input type="text" class="form-control" name="modelo" id="modelo_video" required /><datalist id="marcas_datalist"><option value="MICROSOFT"></option><option value="NINTENDO"></option><option value="SONY"></option><option value="OUTROS"></option></datalist><datalist id="sony_consoles"><option value="PS ONE"></option><option value="PLAYSTATION 2 FAT"></option><option value="PLAYSTATION 2 SLIM"></option><option value="PLAYSTATION 3 FAT"></option><option value="PLAYSTATION 3 SLIM"></option><option value="PLAYSTATION 3 SUPER SLIM"></option><option value="PLAYSTATION 4"></option><option value="PLAYSTATION 4 SLIM"></option><option value="PLAYSTATION 4 PRO"></option><option value="PLAYSTATION 5"></option><option value="PLAYSTATION 5 DIGITAL"></option></datalist><datalist id="ms_consoles"><option value="XBOX-360"></option><option value="XBOX-360 CORE"></option><option value="XBOX-360 ELITE"></option><option value="XBOX-360 ARCADE"></option><option value="XBOX-360 S"></option><option value="XBOX-360 E"></option><option value="XBOX-ONE"></option><option value="XBOX-ONE ELITE"></option><option value="XBOX-ONE S"></option><option value="XBOX-ONE S DIGITAL"></option><option value="XBOX-ONE X"></option><option value="XBOX SERIES-X"></option><option value="XBOX SERIES-S"></option></datalist><datalist id="nintendo_consoles"><option value="WII"></option><option value="WII-U"></option><option value="SWITCH"></option><option value="SWITCH LITE"></option></datalist><script>$("#marca").blur(function () {let x = $(this).val();if (x == "MICROSOFT") {$("#modelo").appendTo(','list="ms_consoles"',');} else if (x == "NINTENDO") {$("#modelo").appendTo(','list="nintendo_consoles"',');} else if (x == "SONY") {$("#modelo").appendTo(','list="sony_consoles"',');} else if (x == "OUTROS") {}});','</script></div>'
+                '<div id="videogame" class="input-group mb-3"><span class="input-group-text">Marca</span><input type="text" class="form-control" list="marcas_datalist" name="marca" id="marca" required /><span class="input-group-text">Modelo</span><input type="text" class="form-control" name="modelo" id="modelo" required /><datalist id="marcas_datalist"><option value="MICROSOFT"></option><option value="NINTENDO"></option><option value="SONY"></option><option value="OUTROS"></option></datalist><datalist id="sony_consoles"><option value="PS ONE"></option><option value="PLAYSTATION 2 FAT"></option><option value="PLAYSTATION 2 SLIM"></option><option value="PLAYSTATION 3 FAT"></option><option value="PLAYSTATION 3 SLIM"></option><option value="PLAYSTATION 3 SUPER SLIM"></option><option value="PLAYSTATION 4"></option><option value="PLAYSTATION 4 SLIM"></option><option value="PLAYSTATION 4 PRO"></option><option value="PLAYSTATION 5"></option><option value="PLAYSTATION 5 DIGITAL"></option></datalist><datalist id="ms_consoles"><option value="XBOX-360"></option><option value="XBOX-360 CORE"></option><option value="XBOX-360 ELITE"></option><option value="XBOX-360 ARCADE"></option><option value="XBOX-360 S"></option><option value="XBOX-360 E"></option><option value="XBOX-ONE"></option><option value="XBOX-ONE ELITE"></option><option value="XBOX-ONE S"></option><option value="XBOX-ONE S DIGITAL"></option><option value="XBOX-ONE X"></option><option value="XBOX SERIES-X"></option><option value="XBOX SERIES-S"></option></datalist><datalist id="nintendo_consoles"><option value="WII"></option><option value="WII-U"></option><option value="SWITCH"></option><option value="SWITCH LITE"></option></datalis</div>'
               );
             }
             $("#celular").remove();
