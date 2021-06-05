@@ -2,7 +2,7 @@
 
 <?php
 
-include "conexao.php";
+require "conexao.php";
 
 $login = $_POST["login_db"];
 $senha = $_POST["senha_db"];

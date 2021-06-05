@@ -41,6 +41,7 @@ class Usuario
                 $_SESSION["cliente_id"] = $dados["id"]; // salva o "id" do cliente na sessão.
                 $_SESSION["cliente_nome"] = $dados["nome"];// salva o "nome" do cliente na sessão.
                 $_SESSION["cliente_estado"] = $dados["estado"];// salva o "estado"¹ do cliente na sessão.
+                $_SESSION["vcc"] = $dados["complemento"];
                 return true;
             } else {
                 return false;

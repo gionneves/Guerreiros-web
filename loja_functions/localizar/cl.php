@@ -25,12 +25,12 @@
             <strong>SUCESSO!</strong> Usuário foi alterado com sucesso.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <?php } else if ($_COOKIE['alterado'] == "falha") { ?>
+        <?php } elseif ($_COOKIE['alterado'] == "falha") { ?>
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             <strong>Oops...</strong> algo saiu errado, tente novamente mais tarde.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <?php } else {} ?>
+        <?php } ?>
     </div>
 
     <!-- Container central de cadastro -->

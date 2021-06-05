@@ -34,6 +34,7 @@
             <nav class="nav nav-pills nav-fill" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 <a class="nav-link" href="index.html">Todas O.S.</a>
                 <a class="nav-link active" aria-current="page" href="#">O.S. disponíveis</a>
+                <a class="nav-link" href="../servicos/views/index.html">Todos Serviços</a>
             </nav>
         </div>
     </header>
@@ -196,7 +197,6 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
-                        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
                     </div>
                     <form action="edit.php" method="post">
                         <div class="modal-body">
