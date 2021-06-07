@@ -25,3 +25,12 @@ if ($custo > 0 && $lucro > 0) {
 
 $sql = "INSERT INTO servicos (tipo_servico, categoria, servico, custo, valor, lucro, 
 tempo) VALUES ($tipo, $categoria, $servico, $custo, $valor, $lucro, $tempo);";
+$stmt = $pdo->prepare($sql);
+
+if ($stmt->execute()) {
+    setcookie("sussesso_servico", true, time()+15);
+    header("Location: /views/CreateServico.php");
+} else {
+    setcookie("sussesso_servico", false, time()+15);
+    header("Location: /views/CreateServico.php");
+}

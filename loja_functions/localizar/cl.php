@@ -1,3 +1,17 @@
+<?php
+/**
+ * Criador de login com criador;
+ * 
+ * PHP version 7
+ * 
+ * @category Criador_Login
+ * @package  Criador_Login
+ * @author   Giovanni Neves Sadauscas <gionneves@gmail.com>
+ * @license  Guerreiros games
+ * @link     http//localhost/
+ */
+?>
+
 <!DOCTYPE html>
 
 <html lang="pt-br">
@@ -20,12 +34,12 @@
     </div>
 
     <div class="container">
-        <?php if ($_COOKIE['alterado'] == "sucesso") { ?>
+        <?php if ($_COOKIE['alterado_cl'] == "sucesso") { ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>SUCESSO!</strong> Usuário foi alterado com sucesso.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <?php } elseif ($_COOKIE['alterado'] == "falha") { ?>
+        <?php } elseif ($_COOKIE['alterado_cl'] == "falha") { ?>
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             <strong>Oops...</strong> algo saiu errado, tente novamente mais tarde.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

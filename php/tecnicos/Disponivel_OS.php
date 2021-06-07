@@ -180,7 +180,7 @@
                             echo '<th>'.$os_tablet['tecnico'].'</th>';
                             echo '<th>'.$os_tablet['servico_realizado'].'</th>';
                             echo '<th>'.$e_os->decode_estado($os_tablet['estado']).'</th>';
-                            echo '<th> <button class="btn btn-success editbtn">Editar</button></th>';
+                            echo '<th> <button class="btn btn-warning editbtn">Editar</button></th>';
                             echo '</tr>';
                         } ?>
                     </tbody>
@@ -285,25 +285,6 @@
                 $('#os_estado').val(data[7])
             })
         })
-
-
-        /* function loadXMLDoc() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("os_celular_table").innerHTML =
-                        this.responseText;
-                }
-            };
-            xhttp.open("GET", "os_celular.php", true);
-            xhttp.send();
-        }
-
-        setInterval(function() {
-            loadXMLDoc();
-        }, 500);
-
-        window.onload = loadXMLDoc; */
         </script>
 </body>
 

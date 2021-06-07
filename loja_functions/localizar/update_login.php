@@ -1,4 +1,15 @@
 <?php
+/**
+ * Dar update no Login do cliente
+ * 
+ * PHP version 7
+ * 
+ * @category Criador_Login
+ * @package  Criador_Login
+ * @author   Giovanni Neves Sadauscas <gionneves@gmail.com>
+ * @license  Guerreiros games
+ * @link     http//localhost/
+ */
 
 require "conexao.php";
 
@@ -12,13 +23,13 @@ if (!empty($_POST["id_login"]) && !empty($_POST["novo_login"])) {
     $stmt = $pdo->prepare($sql);
     
     if ($stmt->execute()) {
-        setcookie("alterado", "sucesso", time()+15);
+        setcookie("alterado_cl", "sucesso", time()+15);
         echo "<script>history.back();</script>";
     } else {
-        setcookie("alterado", "falha", time()+15);
+        setcookie("alterado_cl", "falha", time()+15);
         echo "<script>history.back();</script>";
     }
 } else {
-    setcookie("alterado", "falha", time()+15);
+    setcookie("alterado_cl", "falha", time()+15);
     echo "<script>history.back();</script>";
 }

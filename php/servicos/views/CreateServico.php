@@ -34,11 +34,10 @@
     <header class="m-3">
         <div class="container bg-transparence-light p-2 mc-3 rounded shadow">
             <nav class="nav nav-pills nav-fill" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                <a class="nav-link" href="index.html">Todos serviços</a>
+                <a class="nav-link" href="index.php">Todos serviços</a>
                 <a class="nav-link active" aria-current="page" href="#">Criar serviço</a>
-                <?php if (isset($_SESSION['vcc']) && $_SESSION['vcc'] == 'gerenteTec') { ?><a class="nav-link"
-                    href="ViewServices.php">Visualizar
-                    serviços</a>
+                <?php if (isset($_SESSION['vcc']) && $_SESSION['vcc'] == 'gerenteTec') { ?>
+                <a class="nav-link" href="ViewServices.php">Visualizar serviços</a>
                 <?php }?>
             </nav>
         </div>
