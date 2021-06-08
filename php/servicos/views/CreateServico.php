@@ -50,6 +50,25 @@
             <h3>Criação de serviços</h3>
             <h6 class="text-black-50">Cria serviços para serem colocados nas ordens de serviços</h6>
         </div>
+
+        <?php if (isset($_COOKIE['sucesso_servico'])) {
+            if ($_COOKIE['sucesso_servico'] == "sucesso") { ?>
+
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Sucesso!</strong> Serviço criado com sucesso!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <?php } else { ?>
+
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Oops...</strong> Algo errado aconteceu! Verifique o serviço.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <?php }
+     } ?>
+
         <form action="../Create.php" id="formID" method="post" autocomplete="off">
             <div class="input-group mb-3">
                 <span class="input-group-text" for="tipo_servico">Categoria</span>
@@ -157,7 +176,7 @@
             $("#gdias").prop("disabled", true);
         });
 
-        $("#dias").blur(function() {
+        $("#dias").keyup(function() {
             if (parseInt($(this).val()) > 365) {
                 $(this).val(365);
             }
@@ -197,7 +216,7 @@
 
         // -------------------------------------------
 
-        $(".num").blur(function() {
+        $(".num").keyup(function() {
             let x = $("#valor").val();
             let y = $("#custo").val();
             var z = x - y;

@@ -48,13 +48,17 @@
                     <th scope="col">Categoria</th>
                     <th scope="col">Marca</th>
                     <th scope="col">Modelo</th>
+                    <th scope="col">Custo</th>
                     <th scope="col">Valor</th>
+                    <th scope="col">Lucro</th>
                     <th scope="col">Tempo estimado</th>
+                    <th scope="col">Garantia</th>
+                    <th scope="col">Tempo garantia</th>
                     <th scope="col">Ação</th>
                 </thead>
                 <tbody>
                     <?php 
-                    $sql = "SELECT id, servico, categoria, marca, modelo, valor, tempo FROM servicos;";
+                    $sql = "SELECT id, servico, categoria, marca, modelo, custo, valor, lucro, tempo, garantia, garantia_dias FROM servicos;";
                     foreach ($pdo->query($sql) as $todoser) {
                         echo "<tr>";
                         echo '<th scope="row">'.$todoser['id'].'</th>';
@@ -62,8 +66,12 @@
                         echo '<th>'.$todoser['categoria'].'</th>';
                         echo '<th>'.$todoser['marca'].'</th>';
                         echo '<th>'.$todoser['modelo'].'</th>';
+                        echo '<th>R$'.$todoser['custo'].'</th>';
                         echo '<th>R$'.$todoser['valor'].'</th>';
+                        echo '<th>R$'.$todoser['lucro'].'</th>';
                         echo '<th>'.$todoser['tempo'].' Dias</th>';
+                        echo '<th>'.$todoser['garantia'].'</th>';
+                        echo '<th>'.$todoser['garantia_dias'].' Dias</th>';
                         echo '<th><button class="btn btn-warning m-2 editbtn">Editar</button><button class="btn btn-danger m-2 delbtn">Deletar</button></th>';
                         echo "</tr>";
                     }
@@ -101,8 +109,14 @@
                                 <input class="form-control" type="text" name="modelo" id="modelo">
                             </div>
                             <div class="input-group mb-3">
+                                <span class="input-group-text">Custo R$</span>
+                                <input class="num form-control" type="text" name="custo" id="custo">
+
                                 <span class="input-group-text">Valor R$</span>
-                                <input class="form-control" type="text" name="valor" id="valor">
+                                <input class="num form-control" type="text" name="valor" id="valor">
+
+                                <span class="input-group-text">Lucro R$</span>
+                                <input class="form-control" type="text" name="lucro" id="lucro">
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Tempo</span>
@@ -184,9 +198,33 @@
             console.log(data)
 
             $('#os_update_id').val(data[0])
-            $('#os_servico').val(data[6])
-            $('#os_estado').val(data[7])
+            $('#servico').val(data[1])
+            $('#categoria').val(data[2])
+            $('#marca').val(data[3])
+            $('#modelo').val(data[4])
+            $('#custo').val(data[5])
+            $('#valor').val(data[6])
+            $('#lucro').val(data[7])
+            $('#categoria').val(data[8])
+
         })
+
+        $(".num").keyup(function() {
+            let x = $("#valor").val();
+            let y = $("#custo").val();
+            var z = x - y;
+            if (z < 0) {
+                $("#lucro").val(x - y);
+                $("#lucro").removeClass("text-success text-warning").addClass("text-danger");
+            } else if (z > 0) {
+                $("#lucro").val(x - y);
+                $("#lucro").removeClass("text-danger text-warning").addClass("text-success");
+            } else {
+                $("#lucro").val(x - y);
+                $("#lucro").removeClass("text-danger text-success").addClass("text-warning");
+            }
+        });
+
         $('.delbtn').click(function() {
             $("#delmodal").modal('show');
         })

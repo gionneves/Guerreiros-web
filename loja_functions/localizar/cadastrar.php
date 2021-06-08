@@ -26,13 +26,10 @@ if ($stmt2->rowCount() > 0) {
         echo '<div class="CenterDivOff">';
         echo "<h1>Cadastrado com sucesso!</h1>";
         echo '</div>';
-        //$retornoApp = array("PAINEL" => "SUCESSO");
     } else {
         echo '<div class="CenterDivOff">';
         echo "<h3>Erro com o cadastro!</h3>";
         echo '</div>';
-
-        //$retornoApp = array("PAINEL" => "ERROR");
     }
 }
 

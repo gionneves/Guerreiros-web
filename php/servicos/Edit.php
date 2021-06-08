@@ -11,6 +11,8 @@
  * @link     http//localhost/
  */
 
+require '../Conexao.php';
+
 $categoria = $_POST["categoria"];
 $servico = $_POST["servico"];
 $custo = $_POST["custo"];
