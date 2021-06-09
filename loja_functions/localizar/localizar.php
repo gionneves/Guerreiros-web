@@ -34,17 +34,17 @@
                 </thead>
                 <tbody>
                     <?php
-                include "conexao.php";
-                $local = $_POST["local_db"];
-                $sql = "SELECT * FROM painel WHERE Senha LIKE '%$local%'";
-                foreach ($pdo->query($sql) as $rowlista) {
-                  echo '<tr>';
-                  echo '<th scope="row">'.$rowlista['ID'].'</th>';
-                  echo '<td>' . $rowlista['Login'] . '</td>';
-                  echo '<td>' . $rowlista['Senha'] . '</td>';
-                  echo '</tr>';
-                }
-                ?>
+                    include "conexao.php";
+                    $local = $_POST["local_db"];
+                    $sql = "SELECT * FROM painel WHERE Senha LIKE '%$local%'";
+                    foreach ($pdo->query($sql) as $rowlista) {
+                        echo '<tr>';
+                        echo '<th scope="row">'.$rowlista['ID'].'</th>';
+                        echo '<td>' . $rowlista['Login'] . '</td>';
+                        echo '<td>' . $rowlista['Senha'] . '</td>';
+                        echo '</tr>';
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>

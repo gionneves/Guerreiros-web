@@ -34,17 +34,23 @@
     </div>
 
     <div class="container">
-        <?php if ($_COOKIE['alterado_cl'] == "sucesso") { ?>
+        <?php if (isset($_COOKIE['sucesso_cl'])) {
+            if ($_COOKIE['sucesso_cl'] == "sucesso") { ?>
+
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>SUCESSO!</strong> Usuário foi alterado com sucesso.
+            <strong>Sucesso!</strong> Cliente alterado com sucesso!
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <?php } elseif ($_COOKIE['alterado_cl'] == "falha") { ?>
+
+        <?php } else { ?>
+
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Oops...</strong> algo saiu errado, tente novamente mais tarde.
+            <strong>Oops...</strong> Algo errado aconteceu! Verifique o cliente.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <?php } ?>
+
+        <?php }
+    } ?>
     </div>
 
     <!-- Container central de cadastro -->
