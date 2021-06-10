@@ -1,26 +1,21 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/css/bootstrap.css" />
-    <link rel="stylesheet" href="/css/guerreiros.css" />
-    <script src="/js/bootstrap.js"></script>
-    <script src="/js/jquery-3.6.0.min.js"></script>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tecnicos Guerreiros</title>
-  </head>
+<?php
+/**
+ * Mostra todas os O.S. disponivel para o tecnico que está na sessão.
+ * Nisso cada tecnico vendo somente as O.S. que eles tem e quais eles podem
+ * cadastrar como se fosse eles
+ *
+ * PHP version 7
+ *
+ * @category Tecnicos
+ * @package  Tecnicos
+ * @author   Giovanni Neves Sadauscas <gionneves@gmail.com>
+ * @license  Guerreiros games
+ * @link     http//localhost/
+ */
 
-  <body>
-    <header class="m-3">
-      <div class="container bg-transparence-light p-2 mc-3 rounded shadow">
-        <nav class="nav nav-pills nav-fill" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-          <a class="nav-link active" aria-current="page" href="#">Todas O.S.</a>
-          <a class="nav-link" href="Disponivel_OS.php">O.S. disponíveis</a>
-          <a class="nav-link" href="../servicos/views/index.html">Todos Serviços</a>
-        </nav>
-      </div>
-    </header>
+ require "Template/Header.html";
+
+?>
 
     <div id="todas_os"></div>
 
@@ -70,5 +65,5 @@
 
       window.onload = loadXMLDoc;
     </script>
-  </body>
-</html>
+
+<?php require "Template/Footer.html"; ?>

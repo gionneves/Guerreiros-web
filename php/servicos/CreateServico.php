@@ -1,49 +1,25 @@
 <?php
-    /**
-     * Mostrar todos os serviços cadastrados
-     * 
-     * PHP version 7
-     * 
-     * @category Serviços
-     * @package  Serviços
-     * @author   Giovanni Neves Sadauscas <gionneves@gmail.com>
-     * @license  Guerreiros games
-     * @link     http//localhost/
-     */
+/**
+ * Mostrar todos os serviços cadastrados
+ * 
+ * PHP version 7
+ * 
+ * @category Serviços
+ * @package  Serviços
+ * @author   Giovanni Neves Sadauscas <gionneves@gmail.com>
+ * @license  Guerreiros games
+ * @link     http//localhost/
+ */
 
-    require '../Conexao.php';
-?>
+require '../Conexao.php';
 
+if (isset($_SESSION['vcc']) && $_SESSION['vcc'] == 'gerenteTec') {
+    include "Template/HeaderGen.html";
+} else {
+    include "Template/Header.html";
+}
 
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/guerreiros.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
-        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous" />
-    <title>Serviços Guerreiros-Multi</title>
-</head>
-
-<body> 
-    <?php require "Header.html"; ?>
-    <header class="m-3">
-        <div class="container bg-transparence-light p-2 mc-3 rounded shadow">
-            <nav class="nav nav-pills nav-fill" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                <a class="nav-link" href="index.php">Todos serviços</a>
-                <a class="nav-link active" aria-current="page" href="#">Criar serviço</a>
-                <?php if (isset($_SESSION['vcc']) && $_SESSION['vcc'] == 'gerenteTec') { ?>
-                <a class="nav-link" href="ViewServices.php">Visualizar serviços</a>
-                <?php } ?>
-            </nav>
-        </div>
-    </header>
-
-    <?php if (isset($_SESSION["cliente_estado"]) && $_SESSION["cliente_estado"] == "TT") { ?>
+if (isset($_SESSION["cliente_estado"]) && $_SESSION["cliente_estado"] == "TT") { ?>
 
     <div class="container bg-transparence-light p-2 rounded">
         <div class="text-center">
@@ -253,7 +229,9 @@
         }); */
     });
     </script>
-    <?php } else { echo '<div class="text-center"> <h1>Oops...</h1> <h5>Você não tem acesso</h5>  </div></div>'; } ?>
-</body>
+<?php } else { echo '<div class="text-center"> <h1>Oops...</h1> <h5>Você não tem acesso</h5>  </div></div>'; }
 
-</html>
+    require "Template/Footer.html";
+
+?>
+

@@ -13,34 +13,10 @@
  * @link     http//localhost/
  */
 
+ require "Template/Header.html";
+
 ?>
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/bootstrap.css" />
-    <link rel="stylesheet" href="/css/guerreiros.css" />
-    <script src="/js/bootstrap.js"></script>
-    <script src="/js/jquery-3.6.0.min.js"></script>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecnicos Guerreiros</title>
-</head>
-
-<body>
-    <header class="m-3">
-        <div class="container bg-transparence-light p-2 mc-3 rounded shadow">
-            <nav class="nav nav-pills nav-fill" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                <a class="nav-link" href="index.html">Todas O.S.</a>
-                <a class="nav-link active" aria-current="page" href="#">O.S. disponíveis</a>
-                <a class="nav-link" href="../servicos/views/index.html">Todos Serviços</a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Alerta Confirmação -->
-
+<!-- Alerta Confirmação -->
     <div class="container">
         <?php if ($_COOKIE['alterado'] == "sucesso") { ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -286,6 +262,5 @@
             })
         })
         </script>
-</body>
 
-</html>
+<?php require "Template/Footer.html"; ?>
