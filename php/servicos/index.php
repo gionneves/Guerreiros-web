@@ -11,7 +11,7 @@
      * @link     http//localhost/
      */
 
-    require '../../Conexao.php';
+    require '../Conexao.php';
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +54,7 @@
                 document.getElementById("todos_servicos").innerHTML = this.responseText;
             }
         };
-        xhttp.open("GET", "../TodosServicos.php", true);
+        xhttp.open("GET", "TodosServicos.php", true);
         xhttp.send();
     }
 

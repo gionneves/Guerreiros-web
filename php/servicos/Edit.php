@@ -31,8 +31,8 @@ $stmt = $pdo->prepare($sql);
 
 if ($stmt->execute()) {
     setcookie("sussesso_servico", true, time()+15);
-    header("Location: /views/CreateServico.php");
+    header("Location: ./CreateServico.php");
 } else {
     setcookie("sussesso_servico", false, time()+15);
-    header("Location: /views/CreateServico.php");
+    header("Location: ./CreateServico.php");
 }

@@ -11,8 +11,7 @@
      * @link     http//localhost/
      */
 
-    require '../../Conexao.php';
-    
+    require '../Conexao.php';
 ?>
 
 
@@ -30,7 +29,8 @@
     <title>Serviços Guerreiros-Multi</title>
 </head>
 
-<body>
+<body> 
+    <?php require "Header.html"; ?>
     <header class="m-3">
         <div class="container bg-transparence-light p-2 mc-3 rounded shadow">
             <nav class="nav nav-pills nav-fill" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -38,7 +38,7 @@
                 <a class="nav-link active" aria-current="page" href="#">Criar serviço</a>
                 <?php if (isset($_SESSION['vcc']) && $_SESSION['vcc'] == 'gerenteTec') { ?>
                 <a class="nav-link" href="ViewServices.php">Visualizar serviços</a>
-                <?php }?>
+                <?php } ?>
             </nav>
         </div>
     </header>
@@ -69,7 +69,7 @@
         <?php }
      } ?>
 
-        <form action="../Create.php" id="formID" method="post" autocomplete="off">
+        <form action="Create.php" id="formID" method="post" autocomplete="off">
             <div class="input-group mb-3">
                 <span class="input-group-text" for="tipo_servico">Categoria</span>
                 <input class="form-control" type="text" list="servicos_datalist" name="categoria" id="categoria"

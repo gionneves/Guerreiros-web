@@ -66,16 +66,15 @@ $sql = "INSERT INTO servicos (categoria, servico, marca, modelo, custo, valor, l
 $stmt = $conn->prepare($sql);
 $stmt->bind_param($categoria, $servico, $marca, $modelo, $custo, $valor, $lucro, $tempo, $garantia, $gdias);
 
-echo 'pre-exec ';
-
 if ($stmt->execute()) {
     setcookie("sussesso_servico", "sucesso", time()+15);
     header("Location: /views/CreateServico.php");
+    echo 'pos-exec';
 } else {
     setcookie("sussesso_servico", "falha", time()+15);
     header("Location: /views/CreateServico.php");
+    echo 'pos-exec';
 }
 
-echo 'pos-exec';
 
 ?>
