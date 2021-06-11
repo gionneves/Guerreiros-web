@@ -11,9 +11,25 @@
  * @link     http//localhost/
  */
 
-//require '../Conexao.php';
+require '../Conexao.php';
 
-$categoria = $_POST['categoria'];
+/**
+ * Serve para subitrair dois valores, assim retornando o lucro dos parametro passado
+ * sendo o primeiro o custo e o segundo o valor. Nisso já e subtraido e retornando
+ * o resultado do lucro
+ * 
+ * @param $a O Custo do produto, o quanto foi pago para ser possivel fazer o serviço
+ * @param $b O Valor do produto, o quanto sera cobrado pelo serviço
+ * 
+ * @return Integer O retorno da função, mostra o custo menos o valor, 
+ * revelando o lucro total
+ */
+function Calc_lucro(int $a, int $b) 
+{
+    return $b - $a;
+}
+
+/*$categoria = $_POST['categoria'];
 $servico = $_POST['servico'];
 $marca = $_POST['marca'];
 $modelo = $_POST['modelo'];
@@ -30,10 +46,30 @@ if ($garantia == 'Sim') {
 
 if ($custo > 0 && $lucro > 0) {
     $lucro = $valor - $custo;
+}*/
+
+$categoria = 'Celular';
+$servico = 'Troca de tela';
+$marca = 'Apple';
+$modelo = 'iPhone 8';
+$custo = 300;
+$valor = 800;
+$tempo = 2;
+$garantia = 'Sim';
+
+if ($garantia == 'Sim') {
+    $gdias = 7;
+} else {
+    $gdias = 0;
 }
 
-/*
-$sql = "INSERT INTO servicos (categoria, servico, marca, modelo, custo, valor, lucro, tempo, garantia, garantia_dias) VALUES (:CATEGORIA, :SERVICO, :MARCA, :MODELO, :CUSTO, :VALOR, :LUCRO, :TEMPO, :GARANTIA, :GARANTIADIA);";
+if ($custo > 0 && $lucro > 0) {
+    $lucro = Calc_lucro($custo, $valor);
+
+}
+
+
+/*$sql = "INSERT INTO servicos (categoria, servico, marca, modelo, custo, valor, lucro, tempo, garantia, garantia_dias) VALUES (:CATEGORIA, :SERVICO, :MARCA, :MODELO, :CUSTO, :VALOR, :LUCRO, :TEMPO, :GARANTIA, :GARANTIADIA);";
 $stmt = $pdo->prepare($sql);
 
 $stmt->bindParam(':CATEGORIA', $categoria);
@@ -57,9 +93,9 @@ if ($stmt->execute()) {
     header("Location: /views/CreateServico.php");
 }
 
-echo 'pos-exec'; */
+echo 'pos-exec';*/
 
-include "../conexaoi.php";
+require "../conexaoi.php";
 
 $sql = "INSERT INTO servicos (categoria, servico, marca, modelo, custo, valor, lucro, tempo, garantia, garantia_dias) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 

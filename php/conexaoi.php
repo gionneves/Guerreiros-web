@@ -12,8 +12,7 @@
  * @link     http//localhost/
  */
 
- 
-$conn = new mysqli('localhost', 'guerreiro', '', 'dbguerra');
+$conn = mysqli_connect('localhost', 'root', '', 'dbguerra');
 
 if (!$conn) {
     echo 'Connetion erro: ' . mysqli_connect_error();
