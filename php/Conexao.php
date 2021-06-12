@@ -13,9 +13,8 @@
  */
 
 session_start();
-setcookie("cookieSession", 1, time()+3600);
 
-$dsn = 'mysql:host=localhost;dbname=dbguerra;charset=utf8';
+$dsn = 'mysql:host=127.0.0.1;dbname=dbguerra;charset=utf8';
 $usuario = 'root';
 $senha = '';
     

@@ -11,7 +11,6 @@
  * @link     http//localhost/
  */
 
-require '../Conexao.php';
 
 /**
  * Serve para subitrair dois valores, assim retornando o lucro dos parametro passado
@@ -29,7 +28,9 @@ function Calc_lucro(int $a, int $b)
     return $b - $a;
 }
 
-/*$categoria = $_POST['categoria'];
+require '../Conexao.php';
+
+$categoria = $_POST['categoria'];
 $servico = $_POST['servico'];
 $marca = $_POST['marca'];
 $modelo = $_POST['modelo'];
@@ -44,32 +45,13 @@ if ($garantia == 'Sim') {
     $gdias = 0;
 }
 
-if ($custo > 0 && $lucro > 0) {
-    $lucro = $valor - $custo;
-}*/
-
-$categoria = 'Celular';
-$servico = 'Troca de tela';
-$marca = 'Apple';
-$modelo = 'iPhone 8';
-$custo = 300;
-$valor = 800;
-$tempo = 2;
-$garantia = 'Sim';
-
-if ($garantia == 'Sim') {
-    $gdias = 7;
-} else {
-    $gdias = 0;
-}
-
-if ($custo > 0 && $lucro > 0) {
+if ($custo > 0 && $valor > 0) {
     $lucro = Calc_lucro($custo, $valor);
 
 }
 
 
-/*$sql = "INSERT INTO servicos (categoria, servico, marca, modelo, custo, valor, lucro, tempo, garantia, garantia_dias) VALUES (:CATEGORIA, :SERVICO, :MARCA, :MODELO, :CUSTO, :VALOR, :LUCRO, :TEMPO, :GARANTIA, :GARANTIADIA);";
+$sql = "INSERT INTO servicos (categoria, servico, marca, modelo, custo, valor, lucro, tempo, garantia, garantia_dias) VALUES (:CATEGORIA, :SERVICO, :MARCA, :MODELO, :CUSTO, :VALOR, :LUCRO, :TEMPO, :GARANTIA, :GARANTIADIA);";
 $stmt = $pdo->prepare($sql);
 
 $stmt->bindParam(':CATEGORIA', $categoria);
@@ -93,24 +75,4 @@ if ($stmt->execute()) {
     header("Location: /views/CreateServico.php");
 }
 
-echo 'pos-exec';*/
-
-require "../conexaoi.php";
-
-$sql = "INSERT INTO servicos (categoria, servico, marca, modelo, custo, valor, lucro, tempo, garantia, garantia_dias) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-
-$stmt = $conn->prepare($sql);
-$stmt->bind_param($categoria, $servico, $marca, $modelo, $custo, $valor, $lucro, $tempo, $garantia, $gdias);
-
-if ($stmt->execute()) {
-    setcookie("sussesso_servico", "sucesso", time()+15);
-    header("Location: /views/CreateServico.php");
-    echo 'pos-exec';
-} else {
-    setcookie("sussesso_servico", "falha", time()+15);
-    header("Location: /views/CreateServico.php");
-    echo 'pos-exec';
-}
-
-
-?>
+echo 'pos-exec'; ?>
