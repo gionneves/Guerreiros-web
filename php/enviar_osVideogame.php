@@ -8,7 +8,7 @@
  * @package  O.S.
  * @author   Giovanni Neves Sadauscas <gionneves@gmail.com>
  * @license  Guerreiros games
- * @link     http//localhost/
+ * @link     http://localhost/
  */
 
 require 'conexao.php';
@@ -28,8 +28,7 @@ if (date('D', strtotime("+3 day")) == 'Sun') {
     $data = date('d/m/Y', strtotime("+3 day"));
 }
 
-$sql = 'INSERT INTO ordem_servicos (tipo_os, cliente, marca, modelo, serial, acessorios, defeitos_cliente, adicional_cliente, data_servico, hora_servico )
-VALUES ("Videogame", :CLIENTE, :MARCA, :MODELO, :SERIAL, :ACESSORIO, :DEFEITOCLI, :ADICIONALCLI, :DATARETIRADA, :HORA);';
+$sql = 'INSERT INTO ordem_servicos (tipo_os, cliente, marca, modelo, serial, acessorios, defeitos_cliente, adicional_cliente, data_servico, hora_servico ) VALUES ("Videogame", :CLIENTE, :MARCA, :MODELO, :SERIAL, :ACESSORIO, :DEFEITOCLI, :ADICIONALCLI, :DATARETIRADA, :HORA);';
 
 $stmt = $pdo->prepare($sql);
 

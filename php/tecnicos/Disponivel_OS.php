@@ -34,13 +34,13 @@
 
 <div class="container">
     <?php
-            require '../Conexao.php';
-            require '../Estados_OS.php';
-            $e_os = new Estados_OS();
-            $tec = $_SESSION['cliente_nome'];
-            $sql = "SELECT id, marca, modelo, EMEI, defeitos, tecnico, servico_realizado, estado FROM ordem_servicos WHERE estado > 1 AND estado < 9 AND tecnico = '$tec'";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute();
+    require '../Conexao.php';
+    require '../Estados_OS.php';
+    $e_os = new Estados_OS();
+    $tec = $_SESSION['cliente_nome'];
+    $sql = "SELECT id, marca, modelo, EMEI, defeitos, tecnico, servico_realizado, estado FROM ordem_servicos WHERE estado > 1 AND estado < 9 AND tecnico = '$tec'";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
     if ($stmt->rowCount() > 0) { ?>
     <div class="minhas_os">
         <div class="container">
@@ -108,17 +108,17 @@
                         $e_os = new Estados_OS();
                         $sql = "SELECT id, marca, modelo, EMEI, defeitos, tecnico, servico_realizado, estado FROM ordem_servicos WHERE tipo_os = 'Celular' AND estado > 1 AND estado < 9 AND tecnico = ''";
                     foreach ($pdo->query($sql) as $os_celular) {
-                            echo '<tr>';
-                            echo '<th scope="row">'.$os_celular['id'].'</th>';
-                            echo '<th>'.$os_celular['marca'].'</th>';
-                            echo '<th>'.$os_celular['modelo'].'</th>';
-                            echo '<th>'.$os_celular['EMEI'].'</th>';
-                            echo '<th>'.$os_celular['defeitos'].'</th>';
-                            echo '<th>'.$os_celular['tecnico'].'</th>';
-                            echo '<th>'.$os_celular['servico_realizado'].'</th>';
-                            echo '<th>'.$e_os->decode_estado($os_celular['estado']).'</th>';
-                            echo '<th> <button class="btn btn-warning editbtn">Editar</button></th>';
-                            echo '</tr>';
+                        echo '<tr>';
+                        echo '<th scope="row">'.$os_celular['id'].'</th>';
+                        echo '<th>'.$os_celular['marca'].'</th>';
+                        echo '<th>'.$os_celular['modelo'].'</th>';
+                        echo '<th>'.$os_celular['EMEI'].'</th>';
+                        echo '<th>'.$os_celular['defeitos'].'</th>';
+                        echo '<th>'.$os_celular['tecnico'].'</th>';
+                        echo '<th>'.$os_celular['servico_realizado'].'</th>';
+                        echo '<th>'.$e_os->decode_estado($os_celular['estado']).'</th>';
+                        echo '<th> <button class="btn btn-warning editbtn">Editar</button></th>';
+                        echo '</tr>';
                     } ?>
                 </tbody>
             </table>
@@ -148,17 +148,17 @@
                     <?php
                         $sql = "SELECT id, marca, modelo, EMEI, defeitos, tecnico, servico_realizado, estado FROM ordem_servicos WHERE tipo_os = 'Tablet' AND estado > 1 AND estado < 9 AND tecnico = ''";
                     foreach ($pdo->query($sql) as $os_tablet) {
-                            echo '<tr>';
-                            echo '<th scope="row">'.$os_tablet['id'].'</th>';
-                            echo '<th>'.$os_tablet['marca'].'</th>';
-                            echo '<th>'.$os_tablet['modelo'].'</th>';
-                            echo '<th>'.$os_tablet['EMEI'].'</th>';
-                            echo '<th>'.$os_tablet['defeitos'].'</th>';
-                            echo '<th>'.$os_tablet['tecnico'].'</th>';
-                            echo '<th>'.$os_tablet['servico_realizado'].'</th>';
-                            echo '<th>'.$e_os->decode_estado($os_tablet['estado']).'</th>';
-                            echo '<th> <button class="btn btn-warning editbtn">Editar</button></th>';
-                            echo '</tr>';
+                        echo '<tr>';
+                        echo '<th scope="row">'.$os_tablet['id'].'</th>';
+                        echo '<th>'.$os_tablet['marca'].'</th>';
+                        echo '<th>'.$os_tablet['modelo'].'</th>';
+                        echo '<th>'.$os_tablet['EMEI'].'</th>';
+                        echo '<th>'.$os_tablet['defeitos'].'</th>';
+                        echo '<th>'.$os_tablet['tecnico'].'</th>';
+                        echo '<th>'.$os_tablet['servico_realizado'].'</th>';
+                        echo '<th>'.$e_os->decode_estado($os_tablet['estado']).'</th>';
+                        echo '<th> <button class="btn btn-warning editbtn">Editar</button></th>';
+                        echo '</tr>';
                     } ?>
                 </tbody>
             </table>
@@ -186,8 +186,8 @@
                         <div class="form-group mb-2">
                             <label for="tecnico">Tecnico</label>
                             <?php
-                                    echo '<input type="text" class="form-control" value="'.$_SESSION["cliente_nome"].'" name="tecnico" id="os_tecnico" require>'
-    ?>
+                            echo '<input type="text" class="form-control" value="'.$_SESSION["cliente_nome"].'" name="tecnico" id="os_tecnico" require>'
+                            ?>
                         </div>
 
                         <div class="form-group mb-2">
@@ -205,11 +205,11 @@
                             <div class="servicoTec">
                                 <select name="servico" class="form-select" id="os_servico" require>
                                     <?php
-                                        $sql = "SELECT servico FROM servicos WHERE modelo = '. $_COOKIE['modelo'] .'";
-                                        foreach ($pdo->query($sql) as $servicoTec) {
-                                            echo '<option value="">'.$servicoTec["servico"].'</option>';
-                                        }
-                                        ?>
+                                    $sql = "SELECT servico FROM servicos WHERE modelo = ". $_COOKIE['modelo'] . ";";
+                                    foreach ($pdo->query($sql) as $servicoTec) {
+                                        echo '<option value="">'.$servicoTec["servico"].'</option>';
+                                    }
+                                    ?>
                                 </select>
                             </div>
                         </div>
@@ -219,10 +219,10 @@
                             <div class="optionsTec">
                                 <select name="estado" class="form-select" id="estado" require>
                                     <?php
-                                        for ($i = 2; $i < 9; ++$i) {
-                                            echo '<option value="'.$i.'">'.$e_os->decode_estado($i).'</option>';
-                                        }
-                                        ?>
+                                    for ($i = 2; $i < 9; ++$i) {
+                                        echo '<option value="'.$i.'">'.$e_os->decode_estado($i).'</option>';
+                                    }
+                                    ?>
                                 </select>
                             </div>
                         </div>
