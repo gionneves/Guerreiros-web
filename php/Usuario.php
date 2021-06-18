@@ -19,6 +19,11 @@ class Usuario
      * $_SESSION do PHP.
      * É passado dois parametros que é o "$user" que é definido pelo email e
      * o "$pass" onde entra a senha do usuário.
+     * 
+     * @param $user Passa o usuário para verificação no banco de dados
+     * @param $pass Verifica a senha do usuário no banco de dados
+     * 
+     * @return Boolean
      */
     public function verificaLogin($user, $pass)
     {
