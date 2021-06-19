@@ -1,58 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="refresh" content="900;url=/index.html" />
+		<meta name="viewport" content="width=device-width, initial-scale=0.7" />
+		<link rel="stylesheet" href="/css/bootstrap.css" />
+		<link rel="stylesheet" href="/css/guerreiros.css" />
+		<script src="/js/bootstrap.js"></script>
+		<script src="/js/jquery-3.6.0.min.js"></script>
+		<title>Localizador Guerreiros-Multi</title>
+	</head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta http-equiv="refresh" content="900;url=/index.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=0.7" />
-  <link rel="stylesheet" href="/css/bootstrap.css">
-  <link rel="stylesheet" href="/css/guerreiros.css">
-  <script src="/js/bootstrap.js"></script>
-  <script src="/js/jquery-3.6.0.min.js"></script>
-  <title>Localizador Guerreiros-Multi</title>
-</head>
+	<body class="grade">
+		<div class="container ratio-16x9">
+			<a href="https://www.guerreirosgames.com.br">
+				<img src="/images/vetor_pequeno.png" class="rounded mx-auto d-block" width="35%" height="35%" />
+			</a>
+		</div>
 
-<body class="grade">
-  <div class="container ratio-16x9">
-    <a href="https://www.guerreirosgames.com.br">
-      <img src="/images/vetor_pequeno.png" class="rounded mx-auto d-block" width="35%" height="35%" />
-    </a>
-  </div>
+		<div class="container border border-2 rounded mc-3 bg-transparence text-light">
+			<div class="text-center">
+				<h2>Localizador de usuário</h2>
+				<h3 class="h3">Você pode digitar <strong>SOMENTE</strong> o telefone/senha para localizar.</h3>
+				<p>
+					Para localizar digite o número de telefone tudo junto e sem caractere especial
+					<strong>Exemplo: (11913245867)</strong>
+				</p>
+			</div>
 
-  <div class="container border border-2 rounded mc-3 bg-transparence text-light">
-    <div class="text-center">
-      <h2>Localizador de usuário</h2>
-      <h3 class="h3">
-        Você pode digitar <strong>SOMENTE</strong> o telefone/senha para
-        localizar.
-      </h3>
-      <p>
-        Para localizar digite o número de telefone tudo junto e sem
-        caractere especial <strong>Exemplo: (11913245867)</strong>
-      </p>
-    </div>
+			<div class="mb-3">
+				<form action="localizar.php" method="post">
+					<label class="form-label m-2">Localizar: </label>
+					<div class="input-group mb-2">
+						<input
+							class="form-control rounded m-1"
+							type="text"
+							name="local_db"
+							required
+							placeholder="11913245867"
+						/>
+						<input class="btn btn-danger m-1" type="submit" value="Procurar" />
+					</div>
+				</form>
+			</div>
 
-    <div class="mb-3">
-      <form action="localizar.php" method="post">
-        <label class="form-label m-2">Localizar: </label>
-        <div class="input-group mb-2">
-          <input class="form-control rounded m-1 " type="text" name="local_db" required placeholder="11913245867" />
-          <input class="btn btn-danger m-1" type="submit" value="Procurar" />
-        </div>
-      </form>
-    </div>
-
-    <div class="text-center">
-      <a target="_blank" href="http://playmovenow.ddns.net/"><strong>Verifique se está ativo!</strong></a>
-      <p>
-        Clique <a style="font-weight: bold" href="todos.php">AQUI</a> para
-        ver todos os usuários já cadastrados
-      </p>
-    </div>
-
-  </div>
-
-</body>
-
+			<div class="text-center">
+				<a target="_blank" href="http://playmovenow.ddns.net/"><strong>Verifique se está ativo!</strong></a>
+				<p>
+					Clique <a style="font-weight: bold" href="todos.php">AQUI</a> para ver todos os usuários já
+					cadastrados
+				</p>
+			</div>
+		</div>
+	</body>
 </html>

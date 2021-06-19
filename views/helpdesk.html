@@ -69,9 +69,19 @@
         <input class="form-control" type="text" name="hora" id="hora" maxlength="5" required />
       </div>
 
+      <div class="mb-3">
+        <div class="input-group">
+          <label class="input-group-text" for="adicional">Adicional</label>
+          <input class="form-control" type="text" name="adicional" id="adicional" maxlength="127" required />
+        </div> 
+        <div class="text-center">
+          <strong><span class="text-danger" id="maxlen"></span></strong>
+        </div>
+      </div>
+
       <!-- BTN de enviar O.S. -->
       <div class="container text-center m-4">
-        <button class="btn btn-primary btn-lg" type="submit">Cadastrar-se</button>
+        <button class="btn btn-primary btn-lg" type="submit">Enviar Helpdesk</button>
       </div>
     </form>
   </div>
@@ -86,6 +96,13 @@
 
       hora.value = value;
     });
+
+    $("#adicional").keyup(function () {
+      let x = $(this).val().length;
+      if (x > 126) {
+        $("#maxlen").text("Máximo é 127 caracteres");
+      }
+    })
   </script>
 </body>
 
