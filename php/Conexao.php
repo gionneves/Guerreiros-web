@@ -1,5 +1,5 @@
-<?php
-/**
+<?php/**
+ * 
  * Classe é feita para começar a sessão do usuário e fazer a conexão
  * com o PDO para o banco de dados MySQL
  *

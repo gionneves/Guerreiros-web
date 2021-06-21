@@ -1,5 +1,5 @@
-<?php
-/**
+<?php/**
+ * 
  * Faz a adição de O.S. de celular no banco de dados
  *
  * PHP version 7

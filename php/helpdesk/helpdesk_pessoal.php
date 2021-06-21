@@ -1,4 +1,15 @@
 <?php
+/**
+ * Criar serviços para o banco de dados Guerreiros
+ * 
+ * PHP version 7
+ * 
+ * @category Serviços
+ * @package  Serviços
+ * @author   Giovanni Neves Sadauscas <gionneves@gmail.com>
+ * @license  Guerreiros games
+ * @link     http//localhost/
+ */
 
 require "../php/Conexao.php";
 
