@@ -36,6 +36,18 @@
                     <tbody>
                     <tbody>
                         <?php
+                        /**
+                         * Mostra todos os Login já cadastrados na empresa no sistema de Canais
+                         * 
+                         * PHP version 7
+                         * 
+                         * @category Criador_Login
+                         * @package  Criador_Login
+                         * @author   Giovanni Neves Sadauscas <gionneves@gmail.com>
+                         * @license  Guerreiros games
+                         * @link     http//localhost/
+                         */
+
                         require "conexao.php";
                         $sql = "SELECT * FROM painel ORDER BY ID DESC";
                         foreach ($pdo->query($sql) as $rowlista) {
@@ -45,7 +57,7 @@
                             echo '<td>' . $rowlista['Senha'] . '</td>';
                             echo '</tr>';
                         }
-                    ?>
+                        ?>
                     </tbody>
                 </table>
             </div>

@@ -1,3 +1,17 @@
+<?php
+/**
+ * Localizador de login;
+ * 
+ * PHP version 7
+ * 
+ * @category Localizar_Login
+ * @package  Localizar_Login
+ * @author   Giovanni Neves Sadauscas <gionneves@gmail.com>
+ * @license  Guerreiros games
+ * @link     http//localhost/
+ */
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
