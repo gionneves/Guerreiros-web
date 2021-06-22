@@ -34,7 +34,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    include "conexao.php";
+                    require "conexao.php";
                     $local = $_POST["local_db"];
                     $sql = "SELECT * FROM painel WHERE Senha LIKE '%$local%'";
                     foreach ($pdo->query($sql) as $rowlista) {

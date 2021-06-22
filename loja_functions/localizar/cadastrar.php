@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 
-<?php
+<?php/**
+ * Cadastra usuarios no banco de dados Guerreiros
+ * 
+ * PHP version 7
+ * 
+ * @category Cadastrar
+ * @package  Loja_Functions
+ * @author   Giovanni Neves Sadauscas <gionneves@gmail.com>
+ * @license  Guerreiros games
+ * @link     http//localhost/
+ */
+
 
 require "conexao.php";
 
